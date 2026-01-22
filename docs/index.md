@@ -38,7 +38,7 @@ Domain strategy and content delivery architecture.
 Automation tools supporting the content lifecycle are located in the `/tools` directory:
 
 - **SharePoint Content Scanner** - Extract content from SharePoint for genesis stage processing
-- See [tools/README.md](../tools/README.md) for usage documentation
+- Tool usage documentation is covered in the [Workflows](workflows.md) section
 
 ---
 
