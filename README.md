@@ -10,11 +10,15 @@
 
 ```
 content-workflow/
-├── workflows/           # Content lifecycle process documentation
-├── frameworks/          # Conceptual models and content-as-code philosophy
-├── tools/              # Content workflow automation tools
-│   └── sharepoint/     # SharePoint content extraction (genesis stage)
-└── delivery-intents/   # Domain strategy and delivery documentation
+├── docs/               # MkDocs documentation
+│   ├── frameworks.md  # Conceptual models and content-as-code philosophy
+│   ├── workflows.md   # Content lifecycle process documentation
+│   └── delivery-intents.md  # Domain strategy and delivery documentation
+├── tools/             # Content workflow automation tools
+│   └── sharepoint/    # SharePoint content extraction (genesis stage)
+├── hooks/             # MkDocs build hooks
+├── overrides/         # MkDocs theme customization
+└── mkdocs.yml         # Documentation site configuration
 ```
 
 ---
@@ -39,12 +43,17 @@ content-workflow/
 
 ## Quick Start
 
-See individual directories for specific documentation:
-- [Workflows](./workflows/) - Process guides
-- [Frameworks](./frameworks/) - Conceptual models
-- [Tools](./tools/) - Automation utilities
-- [Delivery Intents](./delivery-intents/) - Domain and publishing strategies
+See the documentation site for detailed information:
+- [Frameworks](https://docs.omnivoltaic.com/content-workflow/frameworks) - Conceptual models
+- [Workflows](https://docs.omnivoltaic.com/content-workflow/workflows) - Process guides
+- [Delivery Intents](https://docs.omnivoltaic.com/content-workflow/delivery-intents) - Domain and publishing strategies
+
+**For local development:**
+```bash
+pip install -r requirements.txt
+mkdocs serve
+```
 
 ---
 
-For detailed documentation, refer to docs.omnivoltaic.com/content-workflow
+For detailed documentation, refer to [docs.omnivoltaic.com/content-workflow](https://docs.omnivoltaic.com/content-workflow)

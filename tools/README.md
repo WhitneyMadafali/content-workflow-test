@@ -2,6 +2,8 @@
 
 Automation tools supporting the content lifecycle.
 
+**Documentation:** Tool usage workflows are documented in [docs/workflows.md](../docs/workflows.md)
+
 ---
 
 ## Available Tools

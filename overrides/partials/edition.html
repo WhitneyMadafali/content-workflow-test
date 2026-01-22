@@ -1,0 +1,23 @@
+{% set doc_version = page.meta.oves_doc_version if page and page.meta and page.meta.oves_doc_version else config.extra.oves_doc_version %}
+{% set last_editor = page.meta.oves_last_editor if page and page.meta and page.meta.oves_last_editor else config.extra.oves_last_editor %}
+{% set revision_summary = page.meta.oves_revision_summary if page and page.meta and page.meta.oves_revision_summary else config.extra.oves_revision_summary %}
+{% set revision_date = page.meta.oves_revision_date if page and page.meta and page.meta.oves_revision_date else config.extra.oves_revision_date %}
+
+{% if doc_version or last_editor or revision_summary or revision_date %}
+<div class="md-editorial-footer">
+  <span class="oves-editorial-trail" style="font-size: 0.5rem; color: #2563eb; font-weight: 300;">
+    {% if doc_version %}
+      <span>Version: {{ doc_version }}</span>
+    {% endif %}
+    {% if last_editor %}
+      <span> · Last editor: {{ last_editor }}</span>
+    {% endif %}
+    {% if revision_summary %}
+      <span> · Revision: {{ revision_summary }}</span>
+    {% endif %}
+    {% if revision_date %}
+      <span> · Date: {{ revision_date }}</span>
+    {% endif %}
+  </span>
+</div>
+{% endif %}

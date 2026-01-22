@@ -1,0 +1,84 @@
+site_name: content-workflow
+site_description: "Content lifecycle management framework and tools for Omnivoltaic's content-as-code system"
+site_author: "OVES"
+site_url: "https://docs.omnivoltaic.com/content-workflow"
+
+docs_dir: docs
+site_dir: site
+
+extra_javascript:
+  - https://alcdn.msauth.net/browser/2.38.1/js/msal-browser.min.js
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.top
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
+    - search.highlight
+    - content.code.copy
+    - toc.integrate
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  generator: false
+  oves_doc_version: "0.1.0"
+  oves_last_editor: "Jannice Wang"
+  oves_revision_summary: "Initial content-workflow documentation structure"
+  oves_revision_date: "2026-01-22"
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          name: English
+          build: true
+          default: true
+          nav_translations:
+            Home: Home
+            Frameworks: Frameworks
+            Workflows: Workflows
+            Delivery Intents: Delivery Intents
+
+repo_name: ovesorg/content-workflow
+repo_url: https://github.com/ovesorg/content-workflow
+copyright: Copyright &copy; 2026 Omnivoltaic Energy Solutions
+
+nav:
+  - Home: index.md
+  - Frameworks: frameworks.md
+  - Workflows: workflows.md
+  - Delivery Intents: delivery-intents.md
