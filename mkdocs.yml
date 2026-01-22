@@ -81,4 +81,6 @@ nav:
   - Home: index.md
   - Frameworks: frameworks.md
   - Workflows: workflows.md
-  - Delivery Intents: delivery-intents.md
+  - Delivery Intents:
+    - Overview: delivery-intents.md
+    - Domain Strategy: domain-strategy.md
