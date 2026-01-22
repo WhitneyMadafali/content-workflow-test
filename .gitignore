@@ -1,0 +1,16 @@
+# node_modules
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.vscode/
+*.log
+
+# SharePoint credentials
+.sharepoint_token_cache.json
+
+# Session files
+.session.md
+
+# Analysis outputs
+analyses/
