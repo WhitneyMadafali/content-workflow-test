@@ -1,0 +1,41 @@
+{
+  "folder_name": "ovEgo-Battery",
+  "folder_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared Documents/e-Motorcycle/OVES NPI E-Motorcycle/ovEgo-Battery",
+  "scan_date": "2026-02-02T09:38:49.591381",
+  "item_count": 4,
+  "items": [
+    {
+      "name": "E-Mob-Bat30Ah",
+      "type": "folder",
+      "size": 18025145,
+      "modified": "2023-11-23T03:37:43Z",
+      "created": "2023-11-23T03:37:43Z",
+      "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/ovEgo-Battery/E-Mob-Bat30Ah"
+    },
+    {
+      "name": "E-Mob-Bat45Ah",
+      "type": "folder",
+      "size": 320361437,
+      "modified": "2023-11-23T03:38:20Z",
+      "created": "2023-11-23T03:38:20Z",
+      "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/ovEgo-Battery/E-Mob-Bat45Ah"
+    },
+    {
+      "name": "E-Mob-PaBat45Ah",
+      "type": "folder",
+      "size": 2767214,
+      "modified": "2024-08-01T02:24:36Z",
+      "created": "2024-01-09T09:02:02Z",
+      "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/ovEgo-Battery/E-Mob-PaBat45Ah"
+    },
+    {
+      "name": "TSZ24FK023A01-01-\u6d69\u52c9-EN IEC 62619-\u6d4b\u8bd5\u62a5\u544a-\u6b63\u672c(1).pdf",
+      "type": "file",
+      "size": 796435,
+      "modified": "2024-08-01T02:26:35Z",
+      "created": "2024-08-01T02:26:35Z",
+      "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/ovEgo-Battery/TSZ24FK023A01-01-%E6%B5%A9%E5%8B%89-EN%20IEC%2062619-%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A-%E6%AD%A3%E6%9C%AC(1).pdf",
+      "mime_type": "application/pdf"
+    }
+  ]
+}

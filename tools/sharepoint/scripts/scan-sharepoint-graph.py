@@ -28,6 +28,12 @@ try:
 except ImportError:
     PPTX_AVAILABLE = False
 
+try:
+    from openpyxl import load_workbook
+    OPENPYXL_AVAILABLE = True
+except ImportError:
+    OPENPYXL_AVAILABLE = False
+
 
 class SharePointScanner:
     """Microsoft Graph API client for SharePoint access"""
@@ -36,8 +42,8 @@ class SharePointScanner:
     AUTHORITY = "https://login.microsoftonline.com/common"
     GRAPH_ENDPOINT = "https://graph.microsoft.com/v1.0"
     
-    # Public client ID for Microsoft Graph Explorer (no secret needed)
-    CLIENT_ID = "14d82eec-204b-4c2f-b7e8-296a70dab67e"
+    # OVES custom Azure AD application client ID
+    CLIENT_ID = "1df26ef8-c7ce-4aee-aff2-bc36342362e0"
     
     # Required permissions
     SCOPES = [
@@ -48,21 +54,9 @@ class SharePointScanner:
     
     def __init__(self, cache_file: str = ".sharepoint_token_cache.json", workspace_root: Optional[Path] = None):
         """Initialize with token caching"""
-        # Determine workspace root (parent of oves-sharepoint-tools or fallback)
-        if workspace_root:
-            self.workspace_root = workspace_root
-        else:
-            # Auto-detect: go up from script location to find github workspace
-            script_dir = Path(__file__).parent
-            # Assume script is in oves-sharepoint-tools/scripts/
-            potential_root = script_dir.parent.parent
-            if potential_root.name == 'github' or (potential_root / '.git').exists():
-                self.workspace_root = potential_root
-            else:
-                # Fallback to script parent directory
-                self.workspace_root = script_dir.parent
-        
-        self.cache_file = self.workspace_root / "oves-sharepoint-tools" / cache_file
+        # Use script directory for cache file
+        script_dir = Path(__file__).parent.parent  # Go up to tools/sharepoint/
+        self.cache_file = script_dir / cache_file
         self.token_cache = self._load_cache()
         self.app = PublicClientApplication(
             self.CLIENT_ID,
@@ -70,6 +64,11 @@ class SharePointScanner:
             token_cache=self.token_cache
         )
         self.access_token = None
+        # Set workspace root
+        if workspace_root:
+            self.workspace_root = workspace_root
+        else:
+            self.workspace_root = Path(__file__).parent.parent.parent  # Up to github/
         
     def _load_cache(self):
         """Load token cache from file"""
@@ -288,6 +287,61 @@ class SharePointScanner:
                 "error": f"Analysis failed: {str(e)}"
             }
     
+    def analyze_excel(self, xlsx_path: str) -> Dict:
+        """Analyze Excel content and extract terms"""
+        if not OPENPYXL_AVAILABLE:
+            return {
+                "error": "openpyxl not installed",
+                "install": "pip install openpyxl"
+            }
+        
+        try:
+            print(f"\n⏳ Analyzing Excel content...")
+            wb = load_workbook(xlsx_path, read_only=True, data_only=True)
+            
+            all_text = []
+            sheet_data = []
+            
+            for sheet_name in wb.sheetnames:
+                sheet = wb[sheet_name]
+                sheet_text = []
+                
+                for row in sheet.iter_rows(values_only=True):
+                    for cell in row:
+                        if cell and isinstance(cell, str) and cell.strip():
+                            sheet_text.append(cell.strip())
+                            all_text.append(cell.strip())
+                
+                sheet_data.append({
+                    "name": sheet_name,
+                    "text_count": len(sheet_text)
+                })
+            
+            # Extract unique terms (simple approach)
+            terms = set()
+            for text in all_text:
+                # Split by common separators
+                words = text.replace('、', ' ').replace('，', ' ').replace(',', ' ').split()
+                for word in words:
+                    if len(word) > 1:  # Filter out single characters
+                        terms.add(word)
+            
+            analysis = {
+                "total_sheets": len(wb.sheetnames),
+                "total_text_cells": len(all_text),
+                "unique_terms_count": len(terms),
+                "terms": sorted(list(terms))[:100],  # First 100 terms
+                "sheets": sheet_data
+            }
+            
+            print(f"✓ Analysis complete: {len(wb.sheetnames)} sheets, {len(all_text)} text cells, {len(terms)} unique terms")
+            return analysis
+            
+        except Exception as e:
+            return {
+                "error": f"Analysis failed: {str(e)}"
+            }
+    
     def analyze_file(self, sharing_url: str, output_file: Optional[str] = None) -> Dict:
         """
         Analyze a SharePoint file (PowerPoint, etc.)
@@ -348,10 +402,12 @@ class SharePointScanner:
         analysis = {}
         if file_ext == '.pptx':
             analysis = self.analyze_powerpoint(str(session_file))
+        elif file_ext == '.xlsx':
+            analysis = self.analyze_excel(str(session_file))
         else:
             analysis = {
                 "message": f"File type {file_ext} analysis not yet implemented",
-                "supported_types": [".pptx"]
+                "supported_types": [".pptx", ".xlsx"]
             }
         
         # Build results
@@ -417,19 +473,73 @@ class SharePointScanner:
                 print(f"\n... and {analysis['total_slides'] - 5} more slides")
             print("-" * 60)
     
-    def scan_folder(self, sharing_url: str, output_file: Optional[str] = None) -> Dict:
+    def scan_folder_recursive(self, drive_id: str, item_id: str, folder_name: str, depth: int = 0, max_depth: int = 10) -> Dict:
+        """
+        Recursively scan a folder and all its subfolders
+        
+        Args:
+            drive_id: SharePoint drive ID
+            item_id: Folder item ID
+            folder_name: Name of the folder
+            depth: Current recursion depth
+            max_depth: Maximum recursion depth
+            
+        Returns:
+            Dictionary with folder tree structure
+        """
+        if depth >= max_depth:
+            return {"name": folder_name, "type": "folder", "items": [], "truncated": True}
+        
+        indent = "  " * depth
+        print(f"{indent}📁 Scanning: {folder_name}")
+        
+        items = self.list_folder_contents(drive_id, item_id)
+        
+        result = {
+            "name": folder_name,
+            "type": "folder",
+            "item_count": len(items),
+            "items": []
+        }
+        
+        for item in items:
+            item_info = {
+                "name": item.get("name"),
+                "type": "folder" if "folder" in item else "file",
+                "size": item.get("size", 0),
+                "modified": item.get("lastModifiedDateTime"),
+                "web_url": item.get("webUrl")
+            }
+            
+            # If it's a folder, recurse into it
+            if "folder" in item:
+                sub_id = item.get("id")
+                if sub_id:
+                    sub_result = self.scan_folder_recursive(
+                        drive_id, sub_id, item.get("name"), depth + 1, max_depth
+                    )
+                    item_info["items"] = sub_result.get("items", [])
+                    item_info["item_count"] = sub_result.get("item_count", 0)
+            
+            result["items"].append(item_info)
+        
+        return result
+    
+    def scan_folder(self, sharing_url: str, output_file: Optional[str] = None, recursive: bool = False, max_depth: int = 10, filter_indices: Optional[List[int]] = None) -> Dict:
         """
         Scan a SharePoint folder from sharing link
         
         Args:
             sharing_url: SharePoint sharing link
             output_file: Optional path to save JSON output
+            recursive: If True, scan all subfolders recursively
+            max_depth: Maximum recursion depth for recursive scan
             
         Returns:
             Dictionary with folder contents and metadata
         """
         print("\n" + "="*60)
-        print("SharePoint Folder Scanner")
+        print("SharePoint Folder Scanner" + (" (Recursive)" if recursive else ""))
         print("="*60)
         print(f"\n📁 Scanning: {sharing_url}")
         
@@ -451,10 +561,35 @@ class SharePointScanner:
             print("❌ Could not get drive/item IDs")
             return {}
         
-        print(f"\n⏳ Fetching folder contents...")
-        items = self.list_folder_contents(drive_id, item_id)
-        
-        print(f"✓ Found {len(items)} items")
+        if recursive:
+            print(f"\n⏳ Recursively scanning folder tree (max depth: {max_depth})...")
+            folder_tree = self.scan_folder_recursive(drive_id, item_id, folder_item.get('name'), 0, max_depth)
+            
+            results = {
+                "folder_name": folder_item.get("name"),
+                "folder_url": sharing_url,
+                "scan_date": datetime.now().isoformat(),
+                "recursive": True,
+                "max_depth": max_depth,
+                "tree": folder_tree
+            }
+            
+            # Display recursive results
+            self._display_tree(folder_tree)
+            
+            # Save to file if requested
+            if output_file:
+                output_path = Path(output_file)
+                output_path.write_text(json.dumps(results, indent=2))
+                print(f"\n✓ Results saved to: {output_path}")
+            
+            return results
+            
+        else:
+            print(f"\n⏳ Fetching folder contents...")
+            items = self.list_folder_contents(drive_id, item_id)
+            
+            print(f"✓ Found {len(items)} items")
         
         # Build results
         results = {
@@ -487,6 +622,17 @@ class SharePointScanner:
             
             results["items"].append(item_info)
         
+        # Apply filter if specified
+        if filter_indices:
+            filtered_items = []
+            for idx in filter_indices:
+                if 1 <= idx <= len(results["items"]):
+                    filtered_items.append(results["items"][idx - 1])
+            results["items"] = filtered_items
+            results["item_count"] = len(filtered_items)
+            results["filtered"] = True
+            results["filter_indices"] = filter_indices
+        
         # Display results
         self._display_results(results)
         
@@ -497,6 +643,30 @@ class SharePointScanner:
             print(f"\n✓ Results saved to: {output_path}")
         
         return results
+    
+    def _display_tree(self, tree: Dict, depth: int = 0):
+        """Display folder tree in console"""
+        print("\n" + "="*60)
+        print("Recursive Scan Results")
+        print("="*60)
+        
+        def print_tree(node: Dict, indent: str = "", is_last: bool = True):
+            # Print current node
+            connector = "└── " if is_last else "├── "
+            icon = "📁" if node['type'] == 'folder' else "📄"
+            size_str = f" ({node['size'] / 1024:.1f} KB)" if node.get('size', 0) > 0 else ""
+            item_count = f" [{node.get('item_count', 0)} items]" if node['type'] == 'folder' and 'item_count' in node else ""
+            print(f"{indent}{connector}{icon} {node['name']}{size_str}{item_count}")
+            
+            # Print children
+            if 'items' in node and node['items']:
+                extension = "    " if is_last else "│   "
+                for i, child in enumerate(node['items']):
+                    is_last_child = (i == len(node['items']) - 1)
+                    print_tree(child, indent + extension, is_last_child)
+        
+        print_tree(tree)
+        print("-" * 60)
     
     def _display_results(self, results: Dict):
         """Display scan results in console"""
@@ -556,6 +726,27 @@ def main():
         "--cleanup-session",
         action="store_true",
         help="Delete all files in session temp folder"
+    )
+    parser.add_argument(
+        "-r", "--recursive",
+        action="store_true",
+        help="Recursively scan all subfolders"
+    )
+    parser.add_argument(
+        "--max-depth",
+        type=int,
+        default=10,
+        help="Maximum recursion depth (default: 10)"
+    )
+    parser.add_argument(
+        "--filter",
+        help="Comma-separated list of file indices to filter (e.g., '1,4,5,6')",
+        default=None
+    )
+    parser.add_argument(
+        "--download-analyze",
+        action="store_true",
+        help="Download and analyze filtered files (Excel/PowerPoint)"
     )
     
     args = parser.parse_args()
@@ -632,8 +823,89 @@ def main():
         print("  python scan-sharepoint-graph.py 'https://company.sharepoint.com/:p:/s/...' --analyze-file")
         sys.exit(1)
     
+    # Parse filter indices if provided
+    filter_indices = None
+    if args.filter:
+        try:
+            filter_indices = [int(i.strip()) for i in args.filter.split(',')]
+            print(f"\n🔍 Filtering files: {filter_indices}")
+        except ValueError:
+            print("❌ Error: Invalid filter format. Use comma-separated numbers (e.g., '1,4,5,6')")
+            sys.exit(1)
+    
     # Scan the folder
-    scanner.scan_folder(args.url, args.output)
+    results = scanner.scan_folder(args.url, args.output, recursive=args.recursive, max_depth=args.max_depth, filter_indices=filter_indices)
+    
+    # Download and analyze filtered files if requested
+    if args.download_analyze and filter_indices and results.get('items'):
+        print("\n" + "="*60)
+        print("Downloading and Analyzing Files")
+        print("="*60)
+        
+        # Get drive_id from first item
+        folder_item = scanner.resolve_sharing_link(args.url)
+        if folder_item:
+            drive_id = folder_item.get("parentReference", {}).get("driveId")
+            item_id = folder_item.get("id")
+            
+            if drive_id and item_id:
+                # Get all items again for download
+                all_items = scanner.list_folder_contents(drive_id, item_id)
+                
+                # Create session directory
+                session_dir = scanner.workspace_root / ".sharepoint-session"
+                session_dir.mkdir(parents=True, exist_ok=True)
+                
+                analysis_results = []
+                
+                for idx in filter_indices:
+                    if 1 <= idx <= len(all_items):
+                        item = all_items[idx - 1]
+                        file_name = item.get('name')
+                        file_id = item.get('id')
+                        file_size = item.get('size', 0)
+                        
+                        print(f"\n[{idx}] {file_name} ({file_size / 1024 / 1024:.2f} MB)")
+                        
+                        # Download file
+                        session_file = session_dir / file_name
+                        if session_file.exists():
+                            print(f"✓ Using cached file")
+                        else:
+                            if scanner.download_file(drive_id, file_id, str(session_file)):
+                                print(f"✓ Downloaded successfully")
+                            else:
+                                print(f"❌ Download failed")
+                                continue
+                        
+                        # Analyze file
+                        file_ext = Path(file_name).suffix.lower()
+                        if file_ext == '.xlsx':
+                            analysis = scanner.analyze_excel(str(session_file))
+                            analysis_results.append({
+                                "file_name": file_name,
+                                "index": idx,
+                                "analysis": analysis
+                            })
+                        elif file_ext == '.pptx':
+                            analysis = scanner.analyze_powerpoint(str(session_file))
+                            analysis_results.append({
+                                "file_name": file_name,
+                                "index": idx,
+                                "analysis": analysis
+                            })
+                
+                # Save combined analysis
+                if args.output and analysis_results:
+                    output_path = Path(args.output)
+                    combined_results = {
+                        "scan_date": datetime.now().isoformat(),
+                        "folder_url": args.url,
+                        "filtered_indices": filter_indices,
+                        "files": analysis_results
+                    }
+                    output_path.write_text(json.dumps(combined_results, indent=2, ensure_ascii=False))
+                    print(f"\n✓ Analysis results saved to: {output_path}")
 
 
 if __name__ == "__main__":

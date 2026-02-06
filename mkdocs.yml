@@ -1,17 +1,17 @@
-site_name: content-workflow
-site_description: "Content lifecycle management framework and tools for Omnivoltaic's content-as-code system"
+site_name: 智能飞行平台技术方案
+site_description: 工业级无人机技术参数与应用案例
 site_author: "OVES"
-site_url: "https://docs.omnivoltaic.com/content-workflow"
+use_directory_urls: false
 
 docs_dir: docs
 site_dir: site
 
 extra_javascript:
   - https://alcdn.msauth.net/browser/2.38.1/js/msal-browser.min.js
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
 
 theme:
   name: material
-  custom_dir: overrides
   palette:
     - scheme: default
       primary: blue
@@ -40,9 +40,16 @@ extra_css:
 extra:
   generator: false
   oves_doc_version: "0.1.0"
-  oves_last_editor: "Jannice Wang"
+  oves_last_editor: "Janice"
   oves_revision_summary: "Initial content-workflow documentation structure"
-  oves_revision_date: "2026-01-22"
+  oves_revision_date: "2026-01-29"
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 中文
+      link: /
+      lang: zh
 
 markdown_extensions:
   - admonition
@@ -57,30 +64,35 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+  - plantuml_markdown:
+      server: http://www.plantuml.com/plantuml
+      format: svg
+      classes: uml-diagram
+      title: System Architecture Diagram
+      alt: System Architecture Diagram
 
 plugins:
   - search
   - i18n:
       docs_structure: folder
       languages:
-        - locale: en
-          name: English
+        - locale: zh
+          name: 中文
           build: true
           default: true
           nav_translations:
+            Home: 首页
+        - locale: en
+          name: English
+          build: true
+          nav_translations:
             Home: Home
-            Frameworks: Frameworks
-            Workflows: Workflows
-            Delivery Intents: Delivery Intents
+      reconfigure_material: true
+      reconfigure_search: true
 
 repo_name: ovesorg/content-workflow
 repo_url: https://github.com/ovesorg/content-workflow
 copyright: Copyright &copy; 2026 Omnivoltaic Energy Solutions
 
 nav:
-  - Home: index.md
-  - Frameworks: frameworks.md
-  - Workflows: workflows.md
-  - Delivery Intents:
-    - Overview: delivery-intents.md
-    - Domain Strategy: domain-strategy.md
+  - 首页: index.md

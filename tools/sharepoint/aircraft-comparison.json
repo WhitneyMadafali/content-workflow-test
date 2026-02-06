@@ -1,0 +1,76 @@
+{
+  "generation_date": "2026-01-30T10:48:59.773648",
+  "categories": [
+    {
+      "source_file": "Drone Presentation.pdf",
+      "extracted_specs": [],
+      "market_position": "参考行业平均水平",
+      "competitive_advantages": []
+    },
+    {
+      "source_file": "无人机中文介绍.pdf",
+      "extracted_specs": [],
+      "market_position": "参考行业平均水平",
+      "competitive_advantages": []
+    },
+    {
+      "source_file": "智能飞行平台.pdf",
+      "extracted_specs": [
+        {
+          "parameter": "基本参最大续航时间达73min,最大载重达",
+          "value": "73"
+        },
+        {
+          "parameter": "73min最大航程",
+          "value": "73"
+        },
+        {
+          "parameter": "1160mm展开尺寸",
+          "value": "1160"
+        },
+        {
+          "parameter": "1595×884×527mm避障功能",
+          "value": "1595"
+        },
+        {
+          "parameter": "最大续航时间达73min",
+          "value": "73"
+        },
+        {
+          "parameter": "通信距离达20k支持六向避障",
+          "value": "20"
+        },
+        {
+          "parameter": "最大载重达10kg",
+          "value": "10"
+        },
+        {
+          "parameter": "内置电池3h 续航时间",
+          "value": "3"
+        },
+        {
+          "parameter": "1.5kg 重量",
+          "value": "1.5"
+        },
+        {
+          "parameter": "约5kg 电池重量",
+          "value": "5"
+        },
+        {
+          "parameter": "700kg 重量",
+          "value": "700"
+        },
+        {
+          "parameter": "最大续航时间达到73min,单机覆盖300万亩农田，达到同行业",
+          "value": "73"
+        },
+        {
+          "parameter": "73min超长续航，一次巡检可覆盖整段线 路；",
+          "value": "73"
+        }
+      ],
+      "market_position": "参考行业平均水平",
+      "competitive_advantages": []
+    }
+  ]
+}

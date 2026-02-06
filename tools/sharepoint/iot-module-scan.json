@@ -1,0 +1,149 @@
+{
+  "folder_name": "IOT Module",
+  "folder_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module",
+  "scan_date": "2026-02-05T11:23:53.671733",
+  "recursive": true,
+  "max_depth": 3,
+  "tree": {
+    "name": "IOT Module",
+    "type": "folder",
+    "item_count": 4,
+    "items": [
+      {
+        "name": "BLE",
+        "type": "folder",
+        "size": 5037699,
+        "modified": "2026-01-14T10:42:05Z",
+        "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/BLE",
+        "items": [
+          {
+            "name": "BLE_Module.pdf",
+            "type": "file",
+            "size": 506976,
+            "modified": "2026-01-14T10:43:13Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/BLE/BLE_Module.pdf"
+          },
+          {
+            "name": "BLE_Module_extracted.txt",
+            "type": "file",
+            "size": 1161,
+            "modified": "2026-01-19T02:16:07Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/BLE/BLE_Module_extracted.txt"
+          },
+          {
+            "name": "ST17H65_BLE_SoC_Datasheet_v1.1.3.pdf",
+            "type": "file",
+            "size": 2360209,
+            "modified": "2026-01-14T10:46:00Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/BLE/ST17H65_BLE_SoC_Datasheet_v1.1.3.pdf"
+          },
+          {
+            "name": "ST17H66_BLE_SoC_Datasheet_v1.0 20200908.pdf",
+            "type": "file",
+            "size": 2169353,
+            "modified": "2026-01-14T10:45:33Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/BLE/ST17H66_BLE_SoC_Datasheet_v1.0%2020200908.pdf"
+          }
+        ],
+        "item_count": 4
+      },
+      {
+        "name": "GSM",
+        "type": "folder",
+        "size": 7741908,
+        "modified": "2026-01-14T10:42:16Z",
+        "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/GSM",
+        "items": [
+          {
+            "name": "A7670 Series_SPEC_20200527.pdf",
+            "type": "file",
+            "size": 412194,
+            "modified": "2026-01-14T10:55:21Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/GSM/A7670%20Series_SPEC_20200527.pdf"
+          },
+          {
+            "name": "A7670C_R2\u4ea7\u54c1\u89c4\u683c\u4e66_210623(1).pdf",
+            "type": "file",
+            "size": 350306,
+            "modified": "2026-01-14T10:55:21Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/GSM/A7670C_R2%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E4%B9%A6_210623(1).pdf"
+          },
+          {
+            "name": "A7670E_R2_Spec_210324(1).pdf",
+            "type": "file",
+            "size": 254008,
+            "modified": "2026-01-14T10:55:22Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/GSM/A7670E_R2_Spec_210324(1).pdf"
+          },
+          {
+            "name": "A7670\u7cfb\u5217\u786c\u4ef6\u8bbe\u8ba1\u624b\u518c_V1.06(1).pdf",
+            "type": "file",
+            "size": 3403448,
+            "modified": "2026-01-14T10:55:22Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/GSM/A7670%E7%B3%BB%E5%88%97%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%89%8B%E5%86%8C_V1.06(1).pdf"
+          },
+          {
+            "name": "A76XX Series MQTT_EX_AT Command Manual_V1.00.pdf",
+            "type": "file",
+            "size": 286769,
+            "modified": "2026-01-14T10:55:20Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/GSM/A76XX%20Series%20MQTT_EX_AT%20Command%20Manual_V1.00.pdf"
+          },
+          {
+            "name": "A76XX Series_MQTT(S)_Application Note_V1.02.pdf",
+            "type": "file",
+            "size": 665625,
+            "modified": "2026-01-14T10:55:21Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/GSM/A76XX%20Series_MQTT(S)_Application%20Note_V1.02.pdf"
+          },
+          {
+            "name": "A76XX Series_TCPIP_Application Note_V1.02.pdf",
+            "type": "file",
+            "size": 1003876,
+            "modified": "2026-01-14T10:55:21Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/GSM/A76XX%20Series_TCPIP_Application%20Note_V1.02.pdf"
+          },
+          {
+            "name": "A76XX\u7cfb\u5217_\u4e91\u5e73\u53f0\u534f\u8bae_\u5e94\u7528\u6587\u6863_V1.02.pdf",
+            "type": "file",
+            "size": 1365682,
+            "modified": "2026-01-14T10:55:22Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/GSM/A76XX%E7%B3%BB%E5%88%97_%E4%BA%91%E5%B9%B3%E5%8F%B0%E5%8D%8F%E8%AE%AE_%E5%BA%94%E7%94%A8%E6%96%87%E6%A1%A3_V1.02.pdf"
+          }
+        ],
+        "item_count": 8
+      },
+      {
+        "name": "WIFI",
+        "type": "folder",
+        "size": 2164863,
+        "modified": "2026-01-14T10:42:25Z",
+        "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/WIFI",
+        "items": [
+          {
+            "name": "ASR5822S_brief_datasheet_v0.1_EN.pdf",
+            "type": "file",
+            "size": 1034665,
+            "modified": "2026-01-14T10:56:00Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/WIFI/ASR5822S_brief_datasheet_v0.1_EN.pdf"
+          },
+          {
+            "name": "ASR5822S_Datasheet_V1.6.0_EN.pdf",
+            "type": "file",
+            "size": 1130198,
+            "modified": "2026-01-14T10:56:00Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/WIFI/ASR5822S_Datasheet_V1.6.0_EN.pdf"
+          }
+        ],
+        "item_count": 2
+      },
+      {
+        "name": "Binding_and_unbinding_sequence_diagram_between_IOT_modules_and_devices.pdf",
+        "type": "file",
+        "size": 135814,
+        "modified": "2026-01-14T10:47:07Z",
+        "web_url": "https://oves159.sharepoint.com/sites/OVESTechnology-OVESDUCITechnologyDocments/Shared%20Documents/Technical%20Documentation/IOT%20Module/Binding_and_unbinding_sequence_diagram_between_IOT_modules_and_devices.pdf"
+      }
+    ]
+  }
+}

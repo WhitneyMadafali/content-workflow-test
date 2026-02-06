@@ -1,1 +1,102 @@
-/* Custom styles for MkDocs site */
+/* 图片样式优化 */
+.md-content img {
+    max-width: 65%;
+    height: auto;
+    display: block;
+    margin: 1.2rem auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* 响应式图片 */
+@media screen and (max-width: 768px) {
+    .md-content img {
+        max-width: 90%;
+    }
+}
+
+/* 表格样式优化 */
+.md-typeset table:not([class]) {
+    font-size: 0.85em;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5rem auto;
+    max-width: 90%;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    text-align: left;
+    vertical-align: top;
+}
+
+.md-typeset table:not([class]) th {
+    background-color: var(--md-primary-fg-color--light);
+    color: var(--md-primary-bg-color);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+    background-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+    background-color: var(--md-accent-fg-color--transparent);
+}
+
+/* 列表样式优化 */
+.md-typeset ul,
+.md-typeset ol {
+    margin: 0.8rem 0;
+}
+
+.md-typeset ul li,
+.md-typeset ol li {
+    margin-bottom: 0.4rem;
+    line-height: 1.6;
+}
+
+.md-typeset ul ul,
+.md-typeset ol ol {
+    margin-top: 0.3rem;
+}
+
+/* 标题间距优化 */
+.md-typeset h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset h3 {
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--md-primary-fg-color);
+}
+
+.md-typeset h4 {
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+}
+
+/* 段落间距 */
+.md-typeset p {
+    margin: 0.8rem 0;
+    line-height: 1.7;
+}
+
+/* 强调文本 */
+.md-typeset strong {
+    color: var(--md-primary-fg-color);
+    font-weight: 600;
+}
+
+/* 分隔线 */
+.md-typeset hr {
+    margin: 2rem 0;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+}

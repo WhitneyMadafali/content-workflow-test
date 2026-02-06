@@ -1,0 +1,845 @@
+{
+  "folder_name": "S-6 Series",
+  "folder_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series",
+  "scan_date": "2026-02-02T09:55:07.283688",
+  "recursive": true,
+  "max_depth": 10,
+  "tree": {
+    "name": "S-6 Series",
+    "type": "folder",
+    "item_count": 4,
+    "items": [
+      {
+        "name": "S-6 Documents",
+        "type": "folder",
+        "size": 12833720,
+        "modified": "2025-09-30T08:09:28Z",
+        "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Documents",
+        "items": [
+          {
+            "name": "S-6 Specs 20250916.xlsx",
+            "type": "file",
+            "size": 12833720,
+            "modified": "2025-09-30T08:10:29Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/_layouts/15/Doc.aspx?sourcedoc=%7B4A4CEF8D-3342-451C-8FF4-59B428363F6B%7D&file=S-6%20Specs%2020250916.xlsx&action=default&mobileredirect=true"
+          }
+        ],
+        "item_count": 1
+      },
+      {
+        "name": "S-6 Images",
+        "type": "folder",
+        "size": 190540823,
+        "modified": "2025-09-30T08:09:40Z",
+        "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images",
+        "items": [
+          {
+            "name": "S-6_A  Mid-mounted Motor + Dual Disc Brakes",
+            "type": "folder",
+            "size": 1421131,
+            "modified": "2025-09-30T08:10:45Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6_A%20%20Mid-mounted%20Motor%20+%20Dual%20Disc%20Brakes",
+            "items": [
+              {
+                "name": "F1.jpg",
+                "type": "file",
+                "size": 270722,
+                "modified": "2025-09-30T08:10:46Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6_A%20%20Mid-mounted%20Motor%20+%20Dual%20Disc%20Brakes/F1.jpg"
+              },
+              {
+                "name": "S6 Back Side.jpg",
+                "type": "file",
+                "size": 233702,
+                "modified": "2025-09-30T08:10:46Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6_A%20%20Mid-mounted%20Motor%20+%20Dual%20Disc%20Brakes/S6%20Back%20Side.jpg"
+              },
+              {
+                "name": "S6 L Side.jpg",
+                "type": "file",
+                "size": 216359,
+                "modified": "2025-09-30T08:10:46Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6_A%20%20Mid-mounted%20Motor%20+%20Dual%20Disc%20Brakes/S6%20L%20Side.jpg"
+              },
+              {
+                "name": "S6 Left Back Side.jpg",
+                "type": "file",
+                "size": 230447,
+                "modified": "2025-09-30T08:10:47Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6_A%20%20Mid-mounted%20Motor%20+%20Dual%20Disc%20Brakes/S6%20Left%20Back%20Side.jpg"
+              },
+              {
+                "name": "S6 Left Side.jpg",
+                "type": "file",
+                "size": 218105,
+                "modified": "2025-09-30T08:10:47Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6_A%20%20Mid-mounted%20Motor%20+%20Dual%20Disc%20Brakes/S6%20Left%20Side.jpg"
+              },
+              {
+                "name": "S6 Right Side.jpg",
+                "type": "file",
+                "size": 251796,
+                "modified": "2025-09-30T08:10:47Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6_A%20%20Mid-mounted%20Motor%20+%20Dual%20Disc%20Brakes/S6%20Right%20Side.jpg"
+              }
+            ],
+            "item_count": 6
+          },
+          {
+            "name": "S-6H_A Hub Motor + Dual Disc Brakes",
+            "type": "folder",
+            "size": 189119692,
+            "modified": "2025-09-30T08:10:47Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes",
+            "items": [
+              {
+                "name": "PNG",
+                "type": "folder",
+                "size": 10709682,
+                "modified": "2025-09-30T08:10:48Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG",
+                "items": [
+                  {
+                    "name": "398A4727_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 439103,
+                    "modified": "2025-09-30T08:11:09Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4727_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4728_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 465992,
+                    "modified": "2025-09-30T08:11:11Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4728_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4729_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 582771,
+                    "modified": "2025-09-30T08:11:10Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4729_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4730_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 640370,
+                    "modified": "2025-09-30T08:11:11Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4730_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4731_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 517324,
+                    "modified": "2025-09-30T08:11:11Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4731_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4733_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 616440,
+                    "modified": "2025-09-30T08:11:11Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4733_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4735_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 483071,
+                    "modified": "2025-09-30T08:11:11Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4735_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4736_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 552291,
+                    "modified": "2025-09-30T08:11:12Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4736_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4737_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 466089,
+                    "modified": "2025-09-30T08:11:12Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4737_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4739_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 608507,
+                    "modified": "2025-09-30T08:11:12Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4739_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4740_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 293781,
+                    "modified": "2025-09-30T08:11:12Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4740_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4746_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 369667,
+                    "modified": "2025-09-30T08:11:13Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4746_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4747_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 453296,
+                    "modified": "2025-09-30T08:11:13Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4747_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4748_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 470788,
+                    "modified": "2025-09-30T08:11:13Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4748_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4749_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 466958,
+                    "modified": "2025-09-30T08:11:13Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4749_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4750_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 621704,
+                    "modified": "2025-09-30T08:11:14Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4750_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4751_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 615657,
+                    "modified": "2025-09-30T08:11:14Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4751_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4752_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 533809,
+                    "modified": "2025-09-30T08:11:15Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4752_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4753_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 643968,
+                    "modified": "2025-09-30T08:11:15Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4753_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4754_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 536583,
+                    "modified": "2025-09-30T08:11:15Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4754_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  },
+                  {
+                    "name": "398A4756_\u7f8e\u56fe\u62a0\u56fe09-22-2025.png",
+                    "type": "file",
+                    "size": 331513,
+                    "modified": "2025-09-30T08:11:15Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/PNG/398A4756_%E7%BE%8E%E5%9B%BE%E6%8A%A0%E5%9B%BE09-22-2025.png"
+                  }
+                ],
+                "item_count": 21
+              },
+              {
+                "name": "398A4727.JPG",
+                "type": "file",
+                "size": 6025078,
+                "modified": "2025-09-30T08:10:51Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4727.JPG"
+              },
+              {
+                "name": "398A4728.JPG",
+                "type": "file",
+                "size": 5909711,
+                "modified": "2025-09-30T08:10:51Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4728.JPG"
+              },
+              {
+                "name": "398A4729.JPG",
+                "type": "file",
+                "size": 5783100,
+                "modified": "2025-09-30T08:10:51Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4729.JPG"
+              },
+              {
+                "name": "398A4730.JPG",
+                "type": "file",
+                "size": 5778462,
+                "modified": "2025-09-30T08:10:53Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4730.JPG"
+              },
+              {
+                "name": "398A4731.JPG",
+                "type": "file",
+                "size": 5882285,
+                "modified": "2025-09-30T08:10:53Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4731.JPG"
+              },
+              {
+                "name": "398A4732.JPG",
+                "type": "file",
+                "size": 5809019,
+                "modified": "2025-09-30T08:10:54Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4732.JPG"
+              },
+              {
+                "name": "398A4733.JPG",
+                "type": "file",
+                "size": 5897844,
+                "modified": "2025-09-30T08:10:54Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4733.JPG"
+              },
+              {
+                "name": "398A4734.JPG",
+                "type": "file",
+                "size": 5990861,
+                "modified": "2025-09-30T08:10:56Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4734.JPG"
+              },
+              {
+                "name": "398A4735.JPG",
+                "type": "file",
+                "size": 6178436,
+                "modified": "2025-09-30T08:10:55Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4735.JPG"
+              },
+              {
+                "name": "398A4736.JPG",
+                "type": "file",
+                "size": 6629886,
+                "modified": "2025-09-30T08:10:56Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4736.JPG"
+              },
+              {
+                "name": "398A4737.JPG",
+                "type": "file",
+                "size": 6076182,
+                "modified": "2025-09-30T08:10:58Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4737.JPG"
+              },
+              {
+                "name": "398A4738.JPG",
+                "type": "file",
+                "size": 6203304,
+                "modified": "2025-09-30T08:10:57Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4738.JPG"
+              },
+              {
+                "name": "398A4739.JPG",
+                "type": "file",
+                "size": 6248783,
+                "modified": "2025-09-30T08:10:58Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4739.JPG"
+              },
+              {
+                "name": "398A4740.JPG",
+                "type": "file",
+                "size": 5968314,
+                "modified": "2025-09-30T08:11:00Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4740.JPG"
+              },
+              {
+                "name": "398A4741.JPG",
+                "type": "file",
+                "size": 6144114,
+                "modified": "2025-09-30T08:10:59Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4741.JPG"
+              },
+              {
+                "name": "398A4742.JPG",
+                "type": "file",
+                "size": 6159737,
+                "modified": "2025-09-30T08:11:01Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4742.JPG"
+              },
+              {
+                "name": "398A4743.JPG",
+                "type": "file",
+                "size": 6118757,
+                "modified": "2025-09-30T08:11:02Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4743.JPG"
+              },
+              {
+                "name": "398A4744.JPG",
+                "type": "file",
+                "size": 6154847,
+                "modified": "2025-09-30T08:11:02Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4744.JPG"
+              },
+              {
+                "name": "398A4746.JPG",
+                "type": "file",
+                "size": 5986447,
+                "modified": "2025-09-30T08:11:03Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4746.JPG"
+              },
+              {
+                "name": "398A4747.JPG",
+                "type": "file",
+                "size": 6267882,
+                "modified": "2025-09-30T08:11:03Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4747.JPG"
+              },
+              {
+                "name": "398A4748.JPG",
+                "type": "file",
+                "size": 6132282,
+                "modified": "2025-09-30T08:11:05Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4748.JPG"
+              },
+              {
+                "name": "398A4749.JPG",
+                "type": "file",
+                "size": 6213954,
+                "modified": "2025-09-30T08:11:04Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4749.JPG"
+              },
+              {
+                "name": "398A4750.JPG",
+                "type": "file",
+                "size": 6383846,
+                "modified": "2025-09-30T08:11:05Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4750.JPG"
+              },
+              {
+                "name": "398A4751.JPG",
+                "type": "file",
+                "size": 6231362,
+                "modified": "2025-09-30T08:11:07Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4751.JPG"
+              },
+              {
+                "name": "398A4752.JPG",
+                "type": "file",
+                "size": 6294302,
+                "modified": "2025-09-30T08:11:06Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4752.JPG"
+              },
+              {
+                "name": "398A4753.JPG",
+                "type": "file",
+                "size": 6682106,
+                "modified": "2025-09-30T08:11:08Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4753.JPG"
+              },
+              {
+                "name": "398A4754.JPG",
+                "type": "file",
+                "size": 6609591,
+                "modified": "2025-09-30T08:11:08Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4754.JPG"
+              },
+              {
+                "name": "398A4755.JPG",
+                "type": "file",
+                "size": 6333151,
+                "modified": "2025-09-30T08:11:08Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4755.JPG"
+              },
+              {
+                "name": "398A4756.JPG",
+                "type": "file",
+                "size": 6316367,
+                "modified": "2025-09-30T08:11:09Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Images/S-6H_A%20Hub%20Motor%20+%20Dual%20Disc%20Brakes/398A4756.JPG"
+              }
+            ],
+            "item_count": 30
+          }
+        ],
+        "item_count": 2
+      },
+      {
+        "name": "S-6 PNG Photos",
+        "type": "folder",
+        "size": 217774461,
+        "modified": "2025-09-30T08:09:57Z",
+        "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos",
+        "items": [
+          {
+            "name": "S-6_A",
+            "type": "folder",
+            "size": 26945440,
+            "modified": "2025-09-30T08:11:41Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6_A",
+            "items": [
+              {
+                "name": "L2.png",
+                "type": "file",
+                "size": 6682123,
+                "modified": "2025-09-30T08:11:44Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6_A/L2.png"
+              },
+              {
+                "name": "L-black.png",
+                "type": "file",
+                "size": 7948432,
+                "modified": "2025-09-30T08:11:44Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6_A/L-black.png"
+              },
+              {
+                "name": "LF.png",
+                "type": "file",
+                "size": 4858511,
+                "modified": "2025-09-30T08:11:43Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6_A/LF.png"
+              },
+              {
+                "name": "R.png",
+                "type": "file",
+                "size": 6890194,
+                "modified": "2025-09-30T08:11:46Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6_A/R.png"
+              },
+              {
+                "name": "S-6_A  1080x1920.jpg",
+                "type": "file",
+                "size": 566180,
+                "modified": "2025-09-30T08:11:46Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6_A/S-6_A%20%201080x1920.jpg"
+              }
+            ],
+            "item_count": 5
+          },
+          {
+            "name": "S-6H_A",
+            "type": "folder",
+            "size": 190829021,
+            "modified": "2025-09-30T08:11:41Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A",
+            "items": [
+              {
+                "name": "S-6H_A Hub motor dura disc PNG\u56fe\u7247",
+                "type": "folder",
+                "size": 156033052,
+                "modified": "2025-09-30T08:11:42Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87",
+                "items": [
+                  {
+                    "name": "S-6H_A  (10).png",
+                    "type": "file",
+                    "size": 5359545,
+                    "modified": "2025-09-30T08:11:47Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(10).png"
+                  },
+                  {
+                    "name": "S-6H_A  (11).png",
+                    "type": "file",
+                    "size": 2449465,
+                    "modified": "2025-09-30T08:11:46Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(11).png"
+                  },
+                  {
+                    "name": "S-6H_A  (12).png",
+                    "type": "file",
+                    "size": 3078226,
+                    "modified": "2025-09-30T08:11:47Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(12).png"
+                  },
+                  {
+                    "name": "S-6H_A  (13).png",
+                    "type": "file",
+                    "size": 3749410,
+                    "modified": "2025-09-30T08:11:47Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(13).png"
+                  },
+                  {
+                    "name": "S-6H_A  (14).png",
+                    "type": "file",
+                    "size": 3776724,
+                    "modified": "2025-09-30T08:11:48Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(14).png"
+                  },
+                  {
+                    "name": "S-6H_A  (15).png",
+                    "type": "file",
+                    "size": 3694029,
+                    "modified": "2025-09-30T08:11:49Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(15).png"
+                  },
+                  {
+                    "name": "S-6H_A  (16).png",
+                    "type": "file",
+                    "size": 5225277,
+                    "modified": "2025-09-30T08:11:49Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(16).png"
+                  },
+                  {
+                    "name": "S-6H_A  (17).png",
+                    "type": "file",
+                    "size": 5177153,
+                    "modified": "2025-09-30T08:11:49Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(17).png"
+                  },
+                  {
+                    "name": "S-6H_A  (18).png",
+                    "type": "file",
+                    "size": 4386251,
+                    "modified": "2025-09-30T08:11:51Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(18).png"
+                  },
+                  {
+                    "name": "S-6H_A  (19).png",
+                    "type": "file",
+                    "size": 4089577,
+                    "modified": "2025-09-30T08:11:51Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(19).png"
+                  },
+                  {
+                    "name": "S-6H_A  (20).png",
+                    "type": "file",
+                    "size": 4447996,
+                    "modified": "2025-09-30T08:11:51Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(20).png"
+                  },
+                  {
+                    "name": "S-6H_A  (21).png",
+                    "type": "file",
+                    "size": 2784202,
+                    "modified": "2025-09-30T08:11:51Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(21).png"
+                  },
+                  {
+                    "name": "S-6H_A  (6).png",
+                    "type": "file",
+                    "size": 5240232,
+                    "modified": "2025-09-30T08:11:53Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(6).png"
+                  },
+                  {
+                    "name": "S-6H_A  (7).png",
+                    "type": "file",
+                    "size": 3946673,
+                    "modified": "2025-09-30T08:11:53Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(7).png"
+                  },
+                  {
+                    "name": "S-6H_A  (8).png",
+                    "type": "file",
+                    "size": 4626425,
+                    "modified": "2025-09-30T08:11:54Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(8).png"
+                  },
+                  {
+                    "name": "S-6H_A  (9).png",
+                    "type": "file",
+                    "size": 3797200,
+                    "modified": "2025-09-30T08:11:53Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20%20(9).png"
+                  },
+                  {
+                    "name": "S-6H_A (1).png",
+                    "type": "file",
+                    "size": 470788,
+                    "modified": "2025-09-30T08:11:54Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/S-6H_A%20(1).png"
+                  },
+                  {
+                    "name": "\u7f8e\u56fe\u8bbe\u8ba1\u5ba4_\u53d8\u6e05\u6670_2025_09_22.zip",
+                    "type": "file",
+                    "size": 89733879,
+                    "modified": "2025-09-30T08:12:06Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20PNG%E5%9B%BE%E7%89%87/%E7%BE%8E%E5%9B%BE%E8%AE%BE%E8%AE%A1%E5%AE%A4_%E5%8F%98%E6%B8%85%E6%99%B0_2025_09_22.zip"
+                  }
+                ],
+                "item_count": 18
+              },
+              {
+                "name": "S-6H_A Hub motor dura disc \u767d\u5e95\u56fe\u7247",
+                "type": "folder",
+                "size": 34795969,
+                "modified": "2025-09-30T08:11:42Z",
+                "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87",
+                "items": [
+                  {
+                    "name": "S-6H_A (1).jpeg",
+                    "type": "file",
+                    "size": 999413,
+                    "modified": "2025-09-30T08:11:55Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(1).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (10).jpeg",
+                    "type": "file",
+                    "size": 1425005,
+                    "modified": "2025-09-30T08:11:55Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(10).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (11).jpeg",
+                    "type": "file",
+                    "size": 2093219,
+                    "modified": "2025-09-30T08:11:56Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(11).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (12).jpeg",
+                    "type": "file",
+                    "size": 2130826,
+                    "modified": "2025-09-30T08:11:56Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(12).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (13).jpeg",
+                    "type": "file",
+                    "size": 1476071,
+                    "modified": "2025-09-30T08:11:59Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(13).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (14).jpeg",
+                    "type": "file",
+                    "size": 2035421,
+                    "modified": "2025-09-30T08:11:58Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(14).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (15).jpeg",
+                    "type": "file",
+                    "size": 1295621,
+                    "modified": "2025-09-30T08:12:00Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(15).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (16).jpeg",
+                    "type": "file",
+                    "size": 1407287,
+                    "modified": "2025-09-30T08:12:00Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(16).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (17).jpeg",
+                    "type": "file",
+                    "size": 1523156,
+                    "modified": "2025-09-30T08:12:00Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(17).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (18).jpeg",
+                    "type": "file",
+                    "size": 1345648,
+                    "modified": "2025-09-30T08:12:01Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(18).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (19).jpeg",
+                    "type": "file",
+                    "size": 1644926,
+                    "modified": "2025-09-30T08:12:03Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(19).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (2).jpeg",
+                    "type": "file",
+                    "size": 1709640,
+                    "modified": "2025-09-30T08:12:03Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(2).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (20).jpeg",
+                    "type": "file",
+                    "size": 1472319,
+                    "modified": "2025-09-30T08:12:05Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(20).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (21).jpeg",
+                    "type": "file",
+                    "size": 2119189,
+                    "modified": "2025-09-30T08:12:05Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(21).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (3).jpeg",
+                    "type": "file",
+                    "size": 2000551,
+                    "modified": "2025-09-30T08:12:05Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(3).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (4).jpeg",
+                    "type": "file",
+                    "size": 2111783,
+                    "modified": "2025-09-30T08:12:06Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(4).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (5).jpeg",
+                    "type": "file",
+                    "size": 1918428,
+                    "modified": "2025-09-30T08:12:07Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(5).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (6).jpeg",
+                    "type": "file",
+                    "size": 1681968,
+                    "modified": "2025-09-30T08:12:07Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(6).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (7).jpeg",
+                    "type": "file",
+                    "size": 1820238,
+                    "modified": "2025-09-30T08:12:08Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(7).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (8).jpeg",
+                    "type": "file",
+                    "size": 1161428,
+                    "modified": "2025-09-30T08:12:08Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(8).jpeg"
+                  },
+                  {
+                    "name": "S-6H_A (9).jpeg",
+                    "type": "file",
+                    "size": 1423832,
+                    "modified": "2025-09-30T08:12:08Z",
+                    "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20PNG%20Photos/S-6H_A/S-6H_A%20Hub%20motor%20dura%20disc%20%E7%99%BD%E5%BA%95%E5%9B%BE%E7%89%87/S-6H_A%20(9).jpeg"
+                  }
+                ],
+                "item_count": 21
+              }
+            ],
+            "item_count": 2
+          }
+        ],
+        "item_count": 2
+      },
+      {
+        "name": "S-6 Videos",
+        "type": "folder",
+        "size": 217334537,
+        "modified": "2025-09-30T08:10:08Z",
+        "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Videos",
+        "items": [
+          {
+            "name": "E-motorcycle S-6.mp4",
+            "type": "file",
+            "size": 2769711,
+            "modified": "2025-09-30T08:12:10Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Videos/E-motorcycle%20S-6.mp4"
+          },
+          {
+            "name": "S6\u5ba3\u4f20\u89c6\u9891\u56db\u7248\uff08\u5b57\u4f53\u8c03\u6574\uff09.mp4",
+            "type": "file",
+            "size": 214564826,
+            "modified": "2025-09-30T08:12:32Z",
+            "web_url": "https://oves159.sharepoint.com/sites/OVESNPI/Shared%20Documents/e-Motorcycle/OVES%20NPI%20E-Motorcycle/E-Motorcycle%202025-09-01/S-6%20Series/S-6%20Videos/S6%E5%AE%A3%E4%BC%A0%E8%A7%86%E9%A2%91%E5%9B%9B%E7%89%88%EF%BC%88%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%B4%EF%BC%89.mp4"
+          }
+        ],
+        "item_count": 2
+      }
+    ]
+  }
+}

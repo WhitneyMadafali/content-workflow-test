@@ -2,6 +2,7 @@ mkdocs>=1.5.0
 mkdocs-material>=9.5.0
 pymdown-extensions>=10.0.0
 mkdocs-static-i18n>=1.0.0
+plantuml-markdown
 openpyxl==3.1.2
 googletrans==4.0.0rc1
 requests==2.31.0
