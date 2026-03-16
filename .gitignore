@@ -14,3 +14,15 @@ __pycache__/
 
 # Analysis outputs
 analyses/
+
+# MkDocs generated site
+site/
+
+# Temp build artifacts
+tools/sharepoint/--target/
+
+# MkDocs generated site
+site/
+
+# Temp build artifacts
+tools/sharepoint/--target/

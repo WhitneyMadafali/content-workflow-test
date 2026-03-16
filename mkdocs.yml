@@ -28,8 +28,6 @@ theme:
   features:
     - navigation.top
     - navigation.tracking
-    - navigation.instant
-    - navigation.instant.progress
     - search.highlight
     - content.code.copy
     - toc.integrate
@@ -39,17 +37,20 @@ extra_css:
 
 extra:
   generator: false
-  oves_doc_version: "0.1.0"
+  oves_doc_version: "0.1.1"
   oves_last_editor: "Janice"
   oves_revision_summary: "Initial content-workflow documentation structure"
-  oves_revision_date: "2026-01-29"
+  oves_revision_date: "2026-03-16"
   alternate:
-    - name: English
-      link: /en/
-      lang: en
     - name: 中文
-      link: /
+      link: /content-workflow/
       lang: zh
+    - name: English
+      link: /content-workflow/en/
+      lang: en
+    - name: Français
+      link: /content-workflow/fr/
+      lang: fr
 
 markdown_extensions:
   - admonition
@@ -87,6 +88,11 @@ plugins:
           build: true
           nav_translations:
             Home: Home
+        - locale: fr
+          name: Français
+          build: true
+          nav_translations:
+            Home: Accueil
       reconfigure_material: true
       reconfigure_search: true
 
