@@ -1,5 +1,5 @@
-site_name: 智能飞行平台技术方案
-site_description: 工业级无人机技术参数与应用案例
+site_name: 内容扫描指南
+site_description: SharePoint 与 Teams 扫描、筛选与导出流程文档
 site_author: "OVES"
 use_directory_urls: false
 
@@ -81,6 +81,8 @@ plugins:
           name: 中文
           build: true
           default: true
+          site_name: 内容扫描指南
+          site_description: SharePoint 与 Teams 扫描、筛选与导出流程文档
           nav_translations:
             Home: 首页
             SharePoint Scan: SharePoint 扫描
@@ -88,6 +90,8 @@ plugins:
         - locale: en
           name: English
           build: true
+          site_name: Content Scanning Guide
+          site_description: Documentation for SharePoint and Teams scanning, filtering, and export workflows
           nav_translations:
             Home: Home
             SharePoint Scan: SharePoint Scan
@@ -95,6 +99,8 @@ plugins:
         - locale: fr
           name: Français
           build: true
+          site_name: Guide d'analyse de contenu
+          site_description: Documentation des workflows d'analyse, filtrage et export SharePoint et Teams
           nav_translations:
             Home: Accueil
             SharePoint Scan: Analyse SharePoint
