@@ -25,6 +25,23 @@ python scripts/scan-sharepoint-graph.py
 
 ---
 
+### Teams Scanner
+
+**Location:** `./teams/`
+
+**Purpose:** Extract Teams groups, channels, messages/replies, and optional channel files to JSON
+
+**Usage:**
+```bash
+cd tools/teams
+pip install -r requirements.txt
+python scripts/scan-teams-graph.py --include-channel-messages -o analyses/teams-scan.json
+```
+
+**Documentation:** See [teams/README.md](./teams/README.md)
+
+---
+
 ## Future Tools
 
 As workflow needs evolve, additional tools will be added:
