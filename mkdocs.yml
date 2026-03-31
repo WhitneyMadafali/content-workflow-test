@@ -83,8 +83,6 @@ plugins:
           default: true
           nav_translations:
             Home: 首页
-            Tools: 工具
-            Tools Overview: 工具总览
             SharePoint Scan: SharePoint 扫描
             Teams Scan: Teams 扫描
         - locale: en
@@ -92,8 +90,6 @@ plugins:
           build: true
           nav_translations:
             Home: Home
-            Tools: Tools
-            Tools Overview: Tools Overview
             SharePoint Scan: SharePoint Scan
             Teams Scan: Teams Scan
         - locale: fr
@@ -101,8 +97,6 @@ plugins:
           build: true
           nav_translations:
             Home: Accueil
-            Tools: Outils
-            Tools Overview: Vue d'ensemble des outils
             SharePoint Scan: Analyse SharePoint
             Teams Scan: Analyse Teams
       reconfigure_material: true
@@ -114,7 +108,5 @@ copyright: Copyright &copy; 2026 Omnivoltaic Energy Solutions
 
 nav:
   - Home: index.md
-  - Tools:
-      - Tools Overview: tools/overview.md
-      - SharePoint Scan: tools/sharepoint-scan.md
-      - Teams Scan: tools/teams-scan.md
+  - SharePoint Scan: tools/sharepoint-scan.md
+  - Teams Scan: tools/teams-scan.md

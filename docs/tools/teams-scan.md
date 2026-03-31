@@ -45,3 +45,23 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --include-channel-messa
 - 先跑 `--list-teams` 和小 `--message-limit` 验证权限。
 - 再逐步增加消息量和文件下载数量，降低失败重试成本。
 - 产出 JSON 建议保存在 `tools/teams/analyses/`。
+
+## 8) 定位特定团队/频道/聊天内容
+
+### 按团队名称筛选
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES 全体" -o analyses/team-filtered.json
+```
+
+### 按频道名称筛选（在指定团队内）
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES 全体" --channel-name "General" -o analyses/channel-filtered.json
+```
+
+### 查找频道内包含指定关键词的聊天消息
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES 全体" --channel-name "General" --include-channel-messages --message-contains "warranty" -o analyses/message-search.json
+```

@@ -12,7 +12,7 @@ Standalone tooling for Microsoft Teams scanning and export via Microsoft Graph A
 ## Installation
 
 ```bash
-cd /home/ndanu/projects/content-workflow/tools/teams
+cd tools/teams
 pip install -r requirements.txt
 ```
 
@@ -57,6 +57,17 @@ python scripts/scan-teams-graph.py \
 
 ```bash
 python scripts/scan-teams-graph.py --list-teams
+```
+
+### Target a Specific Team/Channel and Search Chat Text
+
+```bash
+python scripts/scan-teams-graph.py \
+  --team-name "OVES All" \
+  --channel-name "General" \
+  --include-channel-messages \
+  --message-contains "warranty" \
+  -o analyses/message-search.json
 ```
 
 ## Output and Session Files

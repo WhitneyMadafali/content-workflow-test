@@ -83,6 +83,55 @@ class TestTeamsReplies(unittest.TestCase):
         self.assertEqual(channel["messages"][0]["replies"][0]["id"], "reply-1")
         self.assertEqual(channel["messages"][0]["replies"][0]["from"], "Bob")
 
+    def test_scan_teams_can_filter_team_channel_and_message_text(self):
+        class FakeScanner(scan_module.TeamsScanner):
+            def __init__(self):
+                self.workspace_root = Path("/tmp")
+
+            def list_teams_groups(self):
+                return [{"id": "team-1", "displayName": "Alpha Team"}]
+
+            def list_joined_teams(self):
+                return [
+                    {"id": "team-1", "displayName": "Alpha Team", "description": "Demo"},
+                    {"id": "team-2", "displayName": "Beta Team", "description": "Demo"},
+                ]
+
+            def list_team_channels(self, team_id):
+                if team_id == "team-1":
+                    return [
+                        {"id": "channel-1", "displayName": "General", "membershipType": "standard", "webUrl": "https://example"},
+                        {"id": "channel-2", "displayName": "Ops", "membershipType": "standard", "webUrl": "https://example"},
+                    ]
+                return []
+
+            def list_channel_messages(self, team_id, channel_id, limit=50):
+                return [
+                    {"id": "m1", "body": {"content": "<p>Hello world</p>"}},
+                    {"id": "m2", "body": {"content": "<p>Target keyword appears here</p>"}},
+                ]
+
+            def list_channel_message_replies(self, team_id, channel_id, message_id, limit=50):
+                return []
+
+        scanner = FakeScanner()
+        results = scanner.scan_teams(
+            include_messages=True,
+            include_replies=False,
+            team_name="alpha",
+            channel_name="general",
+            message_contains="target keyword",
+        )
+
+        self.assertEqual(len(results["teams"]), 1)
+        team = results["teams"][0]
+        self.assertEqual(team["id"], "team-1")
+        self.assertEqual(len(team["channels"]), 1)
+        channel = team["channels"][0]
+        self.assertEqual(channel["id"], "channel-1")
+        self.assertEqual(channel["messages_count"], 1)
+        self.assertEqual(channel["messages"][0]["id"], "m2")
+
 
 if __name__ == "__main__":
     unittest.main()

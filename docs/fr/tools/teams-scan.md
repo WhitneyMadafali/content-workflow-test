@@ -45,3 +45,23 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --include-channel-messa
 - Utilisez Chrome avec `BROWSER=google-chrome`.
 - Commencez avec des limites basses pour valider les permissions.
 - Conservez les sorties JSON dans `tools/teams/analyses/`.
+
+## 8) Cibler une equipe, un canal, ou un texte de chat
+
+### Filtrer par nom d'equipe
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES All" -o analyses/team-filtered.json
+```
+
+### Filtrer par nom de canal dans une equipe
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES All" --channel-name "General" -o analyses/channel-filtered.json
+```
+
+### Rechercher des messages contenant un texte specifique
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES All" --channel-name "General" --include-channel-messages --message-contains "warranty" -o analyses/message-search.json
+```

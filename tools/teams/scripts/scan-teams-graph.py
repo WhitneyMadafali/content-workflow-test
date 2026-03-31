@@ -14,6 +14,7 @@ import json
 import re
 import html
 import sys
+import argparse
 from pathlib import Path
 from typing import Dict, List, Optional
 from datetime import datetime
@@ -166,6 +167,11 @@ class TeamsScanner:
         app_obj = from_obj.get("application") or {}
         return user_obj.get("displayName") or app_obj.get("displayName")
 
+    def _contains_text(self, value: Optional[str], needle: Optional[str]) -> bool:
+        if not needle:
+            return True
+        return needle.lower() in (value or "").lower()
+
     def list_teams_groups(self) -> List[Dict]:
         endpoint = "/groups?$select=id,displayName,description,mail,resourceProvisioningOptions&$top=999"
         groups = self._make_paginated_request(endpoint)
@@ -305,7 +311,9 @@ class TeamsScanner:
 
     def scan_teams(self, output_file: Optional[str] = None, include_messages: bool = False, message_limit: int = 50,
                    include_replies: bool = True, reply_limit: int = 50, download_files: bool = False,
-                   max_files_per_channel: int = 50) -> Dict:
+                   max_files_per_channel: int = 50, team_id: Optional[str] = None, team_name: Optional[str] = None,
+                   channel_id: Optional[str] = None, channel_name: Optional[str] = None,
+                   message_contains: Optional[str] = None) -> Dict:
         print("\n" + "=" * 60)
         print("Microsoft Teams Scanner")
         print("=" * 60)
@@ -316,6 +324,10 @@ class TeamsScanner:
 
         print("Fetching joined Teams...")
         teams = self.list_joined_teams()
+        if team_id:
+            teams = [team for team in teams if (team.get("id") or "") == team_id]
+        elif team_name:
+            teams = [team for team in teams if self._contains_text(team.get("displayName"), team_name)]
         print(f"Found {len(teams)} joined Teams")
 
         group_by_id = {g.get("id"): g for g in teams_groups if g.get("id")}
@@ -328,6 +340,11 @@ class TeamsScanner:
                 "reply_limit": reply_limit,
                 "download_files": download_files,
                 "max_files_per_channel": max_files_per_channel,
+                "team_id": team_id,
+                "team_name": team_name,
+                "channel_id": channel_id,
+                "channel_name": channel_name,
+                "message_contains": message_contains,
             },
             "teams_group_count": len(teams_groups),
             "joined_team_count": len(teams),
@@ -345,6 +362,10 @@ class TeamsScanner:
             print(f"\n[{i}/{len(teams)}] Team: {team_name}")
 
             channels = self.list_team_channels(team_id) if team_id else []
+            if channel_id:
+                channels = [channel for channel in channels if (channel.get("id") or "") == channel_id]
+            elif channel_name:
+                channels = [channel for channel in channels if self._contains_text(channel.get("displayName"), channel_name)]
             print(f"  Channels: {len(channels)}")
 
             team_row = {
@@ -375,6 +396,11 @@ class TeamsScanner:
                     msg_rows = []
 
                     for message in messages:
+                        message_text = self._strip_html((message.get("body") or {}).get("content", ""))
+                        if message_contains and not self._contains_text(message_text, message_contains):
+                            # Keep replies out unless parent message matches requested text.
+                            continue
+
                         msg_row = {
                             "id": message.get("id"),
                             "createdDateTime": message.get("createdDateTime"),
@@ -382,7 +408,7 @@ class TeamsScanner:
                             "from": self._sender_display_name(message),
                             "subject": message.get("subject"),
                             "summary": message.get("summary"),
-                            "body_preview": self._strip_html(message.get("body", {}).get("content", ""))[:500],
+                            "body_preview": message_text[:500],
                             "webUrl": message.get("webUrl"),
                             "replyToId": message.get("replyToId"),
                         }
@@ -467,8 +493,6 @@ class TeamsScanner:
 
 
 def main():
-    import argparse
-
     parser = argparse.ArgumentParser(description="Scan Teams groups/channels/messages/replies/files using Graph API")
     parser.add_argument("-o", "--output", help="Output JSON path", default=None)
     parser.add_argument("--list-teams", action="store_true", help="List joined Teams and exit")
@@ -478,6 +502,11 @@ def main():
     parser.add_argument("--reply-limit", type=int, default=50, help="Max replies per parent message (default: 50)")
     parser.add_argument("--download-channel-files", action="store_true", help="Download files from channel folders")
     parser.add_argument("--max-channel-files", type=int, default=50, help="Max files per channel (default: 50)")
+    parser.add_argument("--team-id", help="Only scan this Team ID", default=None)
+    parser.add_argument("--team-name", help="Only scan Teams matching this name text", default=None)
+    parser.add_argument("--channel-id", help="Only scan this Channel ID", default=None)
+    parser.add_argument("--channel-name", help="Only scan channels matching this name text", default=None)
+    parser.add_argument("--message-contains", help="Only keep messages containing this text", default=None)
 
     args = parser.parse_args()
 
@@ -487,6 +516,10 @@ def main():
 
     if args.list_teams:
         teams = scanner.list_joined_teams()
+        if args.team_id:
+            teams = [team for team in teams if (team.get("id") or "") == args.team_id]
+        elif args.team_name:
+            teams = [team for team in teams if scanner._contains_text(team.get("displayName"), args.team_name)]
         print(f"\nJoined teams: {len(teams)}")
         for team in teams:
             print(f"- {team.get('displayName')} ({team.get('id')})")
@@ -500,6 +533,11 @@ def main():
         reply_limit=max(1, args.reply_limit),
         download_files=args.download_channel_files,
         max_files_per_channel=max(1, args.max_channel_files),
+        team_id=args.team_id,
+        team_name=args.team_name,
+        channel_id=args.channel_id,
+        channel_name=args.channel_name,
+        message_contains=args.message_contains,
     )
 
 
