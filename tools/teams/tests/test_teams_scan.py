@@ -18,6 +18,13 @@ scan_module = _load_module()
 
 
 class TestTeamsReplies(unittest.TestCase):
+    def test_contains_text_is_case_spacing_and_fuzzy_tolerant(self):
+        scanner = scan_module.TeamsScanner.__new__(scan_module.TeamsScanner)
+        self.assertTrue(scanner._contains_text("New Manager Assimilation", "newmanagerassimilation"))
+        self.assertTrue(scanner._contains_text("General", "genral"))  # typo tolerance
+        self.assertTrue(scanner._contains_text("ODA Team East", "oda teameast"))
+        self.assertFalse(scanner._contains_text("Battery Operations", "invoice"))
+
     def test_list_channel_message_replies_endpoint(self):
         scanner = scan_module.TeamsScanner.__new__(scan_module.TeamsScanner)
         captured = {}

@@ -63,5 +63,11 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES 全�
 ### 查找频道内包含指定关键词的聊天消息
 
 ```bash
-BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES 全体" --channel-name "General" --include-channel-messages --message-contains "warranty" -o analyses/message-search.json
+BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "产品团队" --channel-name "General" --include-channel-messages --message-contains "invoice approval" -o analyses/message-search.json
 ```
+
+### 匹配规则（大小写/空格/近似匹配）
+
+- 名称和关键词匹配不区分大小写。
+- 可容忍空格与标点差异（例如 `NewManagerAssimilation` 也可匹配 `New Manager Assimilation`）。
+- 支持轻微拼写误差的近似匹配。

@@ -63,5 +63,11 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES All" 
 ### Search for chat messages containing specific text
 
 ```bash
-BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES All" --channel-name "General" --include-channel-messages --message-contains "warranty" -o analyses/message-search.json
+BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "Product Team" --channel-name "General" --include-channel-messages --message-contains "invoice approval" -o analyses/message-search.json
 ```
+
+### Matching behavior (case/spacing/fuzzy)
+
+- Name and text matching is case-insensitive.
+- Spacing/punctuation differences are tolerated (e.g. `NewManagerAssimilation` can match `New Manager Assimilation`).
+- Near matches are supported for minor typos.

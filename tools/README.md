@@ -42,6 +42,23 @@ python scripts/scan-teams-graph.py --include-channel-messages -o analyses/teams-
 
 ---
 
+### Teams MCP Server
+
+**Location:** `./teams-mcp/`
+
+**Purpose:** MCP integration for Teams channels and chats (listing, reading, searching)
+
+**Usage:**
+```bash
+cd tools/teams-mcp
+pip install -r requirements.txt
+python server.py
+```
+
+**Documentation:** See [teams-mcp/README.md](./teams-mcp/README.md)
+
+---
+
 ## Future Tools
 
 As workflow needs evolve, additional tools will be added:

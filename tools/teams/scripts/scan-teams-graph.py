@@ -15,6 +15,8 @@ import re
 import html
 import sys
 import argparse
+import difflib
+import unicodedata
 from pathlib import Path
 from typing import Dict, List, Optional
 from datetime import datetime
@@ -167,10 +169,73 @@ class TeamsScanner:
         app_obj = from_obj.get("application") or {}
         return user_obj.get("displayName") or app_obj.get("displayName")
 
-    def _contains_text(self, value: Optional[str], needle: Optional[str]) -> bool:
+    def _normalize_for_match(self, value: Optional[str]) -> str:
+        """Normalize text for tolerant matching across spacing/case/punctuation."""
+        if not value:
+            return ""
+        out = []
+        for char in value.lower():
+            cat = unicodedata.category(char)
+            if cat.startswith("L") or cat.startswith("N"):
+                out.append(char)
+            else:
+                out.append(" ")
+        return re.sub(r"\s+", " ", "".join(out)).strip()
+
+    def _looks_like_match(self, value: Optional[str], needle: Optional[str], threshold: float = 0.82) -> bool:
+        """
+        Tolerant matcher:
+        - case-insensitive
+        - spacing-insensitive
+        - punctuation-insensitive
+        - approximate fuzzy fallback
+        """
         if not needle:
             return True
-        return needle.lower() in (value or "").lower()
+        if not value:
+            return False
+
+        raw_h = value.lower()
+        raw_n = needle.lower()
+        if raw_n in raw_h:
+            return True
+
+        norm_h = self._normalize_for_match(value)
+        norm_n = self._normalize_for_match(needle)
+        if not norm_n:
+            return True
+        if norm_n in norm_h:
+            return True
+
+        compact_h = norm_h.replace(" ", "")
+        compact_n = norm_n.replace(" ", "")
+        if compact_n and compact_n in compact_h:
+            return True
+
+        # Fuzzy full-string check for short labels like team/channel names.
+        if len(compact_h) <= 80:
+            ratio = difflib.SequenceMatcher(None, compact_h, compact_n).ratio()
+            if ratio >= threshold:
+                return True
+
+        # Fuzzy window check for longer text bodies.
+        if len(compact_n) >= 4 and len(compact_h) > len(compact_n):
+            win = len(compact_n)
+            step = max(1, win // 3)
+            start = 0
+            while start < len(compact_h):
+                segment = compact_h[start:start + win]
+                if not segment:
+                    break
+                ratio = difflib.SequenceMatcher(None, segment, compact_n).ratio()
+                if ratio >= threshold:
+                    return True
+                start += step
+
+        return False
+
+    def _contains_text(self, value: Optional[str], needle: Optional[str]) -> bool:
+        return self._looks_like_match(value, needle)
 
     def list_teams_groups(self) -> List[Dict]:
         endpoint = "/groups?$select=id,displayName,description,mail,resourceProvisioningOptions&$top=999"

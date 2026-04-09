@@ -63,5 +63,11 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES All" 
 ### Rechercher des messages contenant un texte specifique
 
 ```bash
-BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "OVES All" --channel-name "General" --include-channel-messages --message-contains "warranty" -o analyses/message-search.json
+BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "Equipe Produit" --channel-name "General" --include-channel-messages --message-contains "invoice approval" -o analyses/message-search.json
 ```
+
+### Comportement de correspondance (casse/espace/approximation)
+
+- La recherche est insensible a la casse.
+- Les differences d'espaces et de ponctuation sont tolerees.
+- Les correspondances approximatives (petites fautes) sont prises en charge.

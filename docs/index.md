@@ -4,11 +4,13 @@
 
 - [SharePoint 扫描](tools/sharepoint-scan.md)
 - [Teams 扫描](tools/teams-scan.md)
+- [Teams MCP](tools/teams-mcp.md)
 
 ## 适用场景概览
 
 - 需要扫描 SharePoint 文件夹、文件和导出 JSON：使用 SharePoint 扫描
 - 需要扫描 Teams 团队、频道、消息/回复及频道文件：使用 Teams 扫描
+- 需要在 MCP 客户端中读取 Teams 频道/聊天：使用 Teams MCP
 
 ## 推荐开始步骤
 
