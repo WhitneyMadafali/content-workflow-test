@@ -61,29 +61,20 @@ python server.py
 
 ### Forms MCP（Teams 频道中的 Forms 反馈）
 
-**Stub directory:** [forms-mcp/README.md](./forms-mcp/README.md) (naming entry only; no MCP server code).
+**Location:** `./forms-mcp/`
 
-**Documentation (MkDocs):** [docs/tools/forms-mcp.md](../docs/tools/forms-mcp.md) — also built as **Forms MCP** in the site nav.
-
-**Purpose:** Export Teams **channel messages** that include Microsoft Forms links (`forms.office.com` / `forms.microsoft.com`) when forms or feedback are posted in a channel. This is **not** a separate MCP server; it uses the Teams scanner with `--forms-links-only`.
+**Purpose:** MCP integration for **actual Microsoft Forms responses** (resolve form URL, list responses, summarize results).
 
 **Usage:**
 
 ```bash
-cd tools/teams
+cd tools/forms-mcp
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-BROWSER=google-chrome .venv/bin/python scripts/scan-teams-graph.py \
-  --team-name "Your team" \
-  --channel-name "Your channel" \
-  --include-channel-messages \
-  --forms-links-only \
-  --message-limit 100 \
-  --reply-limit 30 \
-  -o analyses/channel-forms-posts.json
+BROWSER=google-chrome .venv/bin/python server.py
 ```
 
-**See also:** [teams/README.md](./teams/README.md) (Forms feedback section).
+**Documentation:** See [forms-mcp/README.md](./forms-mcp/README.md) and [docs/tools/forms-mcp.md](../docs/tools/forms-mcp.md).
 
 ---
 

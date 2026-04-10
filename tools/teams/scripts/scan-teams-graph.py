@@ -244,6 +244,19 @@ class TeamsScanner:
             return False
         return bool(_FORMS_HOST_RE.search(value))
 
+    def _message_has_forms_link(self, message_obj: Dict) -> bool:
+        """
+        Detect Forms links in either visible message text or HTML hyperlink targets.
+        Teams messages often store links in anchor href where visible text is generic
+        (e.g. "Fill in form"), so checking stripped text alone is not enough.
+        """
+        body = (message_obj.get("body") or {})
+        raw_content = body.get("content", "") or ""
+        if self._text_has_forms_link(raw_content):
+            return True
+        visible_text = self._strip_html(raw_content)
+        return self._text_has_forms_link(visible_text)
+
     def _contains_text(self, value: Optional[str], needle: Optional[str]) -> bool:
         return self._looks_like_match(value, needle)
 
@@ -473,7 +486,7 @@ class TeamsScanner:
 
                     for message in messages:
                         message_text = self._strip_html((message.get("body") or {}).get("content", ""))
-                        if forms_links_only and not self._text_has_forms_link(message_text):
+                        if forms_links_only and not self._message_has_forms_link(message):
                             continue
                         if message_contains and not self._contains_text(message_text, message_contains):
                             # Keep replies out unless parent message matches requested text.

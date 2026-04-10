@@ -4,7 +4,7 @@
 
 !!! note "说明"
 
-    本仓库 **未提供** 名为 `forms-mcp` 的独立 MCP 服务进程；仓库内入口说明见 `tools/forms-mcp/README.md`。频道内与 Forms 相关的反馈通过 **Teams 扫描**（命令行）或 **Teams MCP**（客户端工具）读取 **频道消息** 实现。  
+    本仓库提供 `tools/forms-mcp` 独立 MCP 服务，用于读取 **Microsoft Forms 实际答卷**。同时保留通过 Teams 扫描频道内 Forms 链接的流程。  
     本流程 **不会** 调用 Microsoft Forms 后台拉取全部答卷明细；若需表单原始数据，请使用 Forms 导出、Power Automate 或 Graph Forms API（依租户策略而定）。
 
 ## 1) 适用场景

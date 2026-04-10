@@ -54,6 +54,17 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
+## Local Auth Cache Files (Not Committed)
+
+Some tools in this repo create local Microsoft auth token cache files after sign-in:
+
+- `tools/forms-mcp/.forms_token_cache.json`
+- `tools/teams/.teams_token_cache.json`
+- `tools/sharepoint/.sharepoint_token_cache.json`
+
+These files are environment-specific and may contain sensitive auth state.
+They are intentionally ignored via `.gitignore` and should never be committed.
+
 ---
 
 For detailed documentation, refer to [docs.omnivoltaic.com/content-workflow](https://docs.omnivoltaic.com/content-workflow)

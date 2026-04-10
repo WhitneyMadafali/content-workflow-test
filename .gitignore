@@ -11,6 +11,9 @@ __pycache__/
 
 # SharePoint credentials
 .sharepoint_token_cache.json
+tools/sharepoint/.sharepoint_token_cache.json
+tools/teams/.teams_token_cache.json
+tools/forms-mcp/.forms_token_cache.json
 
 # Session files
 .session.md

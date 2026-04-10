@@ -4,7 +4,7 @@ This page explains how to scan and export Teams **channel messages** as JSON whe
 
 !!! note "Important"
 
-    This repo does **not** ship a standalone server binary named `forms-mcp`. A stub entry exists at `tools/forms-mcp/README.md`. Feedback that lives in the channel is accessed via the **Teams scan** (CLI) or **Teams MCP** tools, which read **channel messages**.  
+    This repo now ships a standalone `tools/forms-mcp` server for reading **actual Microsoft Forms responses**. The Teams scan flow remains useful for channel posts that mention Forms links.  
     This workflow does **not** pull the full Forms response database from the Forms service; for raw submissions use Forms export, Power Automate, or Graph Forms APIs (subject to tenant policy).
 
 ## 1) When to use

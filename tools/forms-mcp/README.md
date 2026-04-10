@@ -1,20 +1,63 @@
-# Forms MCP（文档入口）
+# Forms MCP Server
 
-本目录仅作为 **Forms MCP** 在仓库中的命名入口；**没有**独立的 MCP 服务端代码。
+MCP server for **actual Microsoft Forms response data** (not Teams link posts).
 
-- **说明文档（MkDocs）：** [`docs/tools/forms-mcp.md`](../../docs/tools/forms-mcp.md)  
-  构建后站点导航为 **Forms MCP**。
-- **实现方式：** 使用 [`tools/teams`](../teams/) 中的 `scan-teams-graph.py`，加 `--include-channel-messages` 与 `--forms-links-only`，导出频道内含 Microsoft Forms 链接的帖子。
-- **与 Teams MCP 的关系：** 若需在 MCP 客户端中读取频道消息，仍使用 [`tools/teams-mcp`](../teams-mcp/)，再在结果中筛选 Forms URL；详见文档。
+## What this server does
 
-快速命令示例：
+- Authenticate to Microsoft Forms (`forms.office.com`) using MSAL
+- Resolve a Forms URL to a form ID
+- Fetch real response records from Forms API
+- Provide compact summaries for quick triage
+
+## Install
 
 ```bash
-cd ../teams
-BROWSER=google-chrome .venv/bin/python scripts/scan-teams-graph.py \
-  --team-name "Your team" \
-  --channel-name "Your channel" \
-  --include-channel-messages \
-  --forms-links-only \
-  -o analyses/channel-forms-posts.json
+cd tools/forms-mcp
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
 ```
+
+## Run
+
+```bash
+cd tools/forms-mcp
+BROWSER=google-chrome .venv/bin/python server.py
+```
+
+## Configure in MCP client
+
+```bash
+BROWSER=google-chrome /absolute/path/content-workflow/tools/forms-mcp/.venv/bin/python /absolute/path/content-workflow/tools/forms-mcp/server.py
+```
+
+## Exposed tools
+
+- `whoami_forms()`
+  - Auth check + token context (`tenant_id`, `user_object_id`, scope used)
+- `resolve_form(form_url)`
+  - Resolve a Forms URL to `form_id`
+- `list_form_responses(form_url|form_id, tenant_id?, user_object_id?, top?, skip?)`
+  - Fetch real response rows from Forms API
+- `summarize_form_responses(...)`
+  - Response count + sample rows for quick review
+
+## Required permissions
+
+Your Entra app registration must allow Microsoft Forms delegated access.
+If authentication fails, set a client ID with the right Forms permissions:
+
+```bash
+export FORMS_CLIENT_ID="<your-forms-enabled-client-id>"
+```
+
+Optional scope override:
+
+```bash
+export FORMS_SCOPES="https://forms.office.com/.default"
+```
+
+## Notes
+
+- This uses Forms API endpoints under `https://forms.office.com/formapi/api/...`.
+- If your tenant blocks Forms API for your app, token acquisition or response calls will fail.
+- This server is separate from `tools/teams-mcp` and is intended for **form response data**.

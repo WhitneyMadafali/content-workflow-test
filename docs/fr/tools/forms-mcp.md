@@ -4,7 +4,7 @@ Cette page explique comment analyser et exporter des **messages de canal** Teams
 
 !!! note "Important"
 
-    Ce depot ne fournit **pas** de serveur MCP autonome nomme `forms-mcp`. Un point d'entree est decrit dans `tools/forms-mcp/README.md`. Les retours presents dans le canal sont accessibles via **l'analyse Teams** (CLI) ou **MCP Teams**, qui lisent les **messages de canal**.  
+    Ce depot fournit maintenant un serveur autonome `tools/forms-mcp` pour lire les **reponses Microsoft Forms**. Le flux Teams reste utile pour les messages de canal contenant des liens Forms.  
     Ce flux **ne** recupere **pas** la base complete des reponses Forms ; pour les donnees brutes, utilisez l'export Forms, Power Automate ou les API Graph Forms (selon la politique du tenant).
 
 ## 1) Cas d'usage
