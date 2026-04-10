@@ -71,3 +71,20 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "Equipe Pro
 - La recherche est insensible a la casse.
 - Les differences d'espaces et de ponctuation sont tolerees.
 - Les correspondances approximatives (petites fautes) sont prises en charge.
+
+## 9) Liens Microsoft Forms dans un canal (MCP Forms)
+
+Lorsque des liens Forms sont publies dans un canal, ne conserver que les messages parents dont le corps contient `forms.office.com` ou `forms.microsoft.com` :
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py \
+  --team-name "OVES All" \
+  --channel-name "General" \
+  --include-channel-messages \
+  --forms-links-only \
+  --message-limit 100 \
+  --reply-limit 30 \
+  -o analyses/channel-forms-posts.json
+```
+
+Guide complet : [MCP Forms](forms-mcp.md).

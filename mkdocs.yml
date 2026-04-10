@@ -37,10 +37,10 @@ extra_css:
 
 extra:
   generator: false
-  oves_doc_version: "0.1.1"
+  oves_doc_version: "0.1.2"
   oves_last_editor: "Janice"
-  oves_revision_summary: "Initial content-workflow documentation structure"
-  oves_revision_date: "2026-03-16"
+  oves_revision_summary: "Add Forms MCP docs for Teams channel form feedback"
+  oves_revision_date: "2026-04-10"
   alternate:
     - name: 中文
       link: /content-workflow/
@@ -88,6 +88,7 @@ plugins:
             SharePoint Scan: SharePoint 扫描
             Teams Scan: Teams 扫描
             Teams MCP: Teams MCP
+            Forms MCP: Forms MCP（频道表单）
         - locale: en
           name: English
           build: true
@@ -98,6 +99,7 @@ plugins:
             SharePoint Scan: SharePoint Scan
             Teams Scan: Teams Scan
             Teams MCP: Teams MCP
+            Forms MCP: Forms MCP
         - locale: fr
           name: Français
           build: true
@@ -108,6 +110,7 @@ plugins:
             SharePoint Scan: Analyse SharePoint
             Teams Scan: Analyse Teams
             Teams MCP: MCP Teams
+            Forms MCP: MCP Forms
       reconfigure_material: true
       reconfigure_search: true
 
@@ -120,3 +123,4 @@ nav:
   - SharePoint Scan: tools/sharepoint-scan.md
   - Teams Scan: tools/teams-scan.md
   - Teams MCP: tools/teams-mcp.md
+  - Forms MCP: tools/forms-mcp.md

@@ -71,3 +71,20 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "产品团�
 - 名称和关键词匹配不区分大小写。
 - 可容忍空格与标点差异（例如 `NewManagerAssimilation` 也可匹配 `New Manager Assimilation`）。
 - 支持轻微拼写误差的近似匹配。
+
+## 9) Teams 频道中的 Microsoft Forms 链接（Forms MCP）
+
+当表单链接发布在频道内时，可只导出正文包含 `forms.office.com` 或 `forms.microsoft.com` 的父级消息：
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py \
+  --team-name "OVES 全体" \
+  --channel-name "General" \
+  --include-channel-messages \
+  --forms-links-only \
+  --message-limit 100 \
+  --reply-limit 30 \
+  -o analyses/channel-forms-posts.json
+```
+
+详细说明见 [Forms MCP](forms-mcp.md)。

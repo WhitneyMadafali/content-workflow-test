@@ -7,6 +7,7 @@ Features:
 - Enumerate channels
 - Export channel messages
 - Export channel reply threads
+- Optional filter for posts that include Microsoft Forms links (channel posts only; not the Forms API)
 - Download channel files and include analysis metadata in JSON output
 """
 
@@ -28,6 +29,9 @@ except ImportError:
     print("Required packages not installed.")
     print("Install with: pip install -r requirements.txt")
     sys.exit(1)
+
+# Typical Microsoft Forms URLs embedded in Teams channel posts
+_FORMS_HOST_RE = re.compile(r"forms\.(?:office|microsoft)\.com", re.IGNORECASE)
 
 try:
     from pptx import Presentation
@@ -234,6 +238,12 @@ class TeamsScanner:
 
         return False
 
+    def _text_has_forms_link(self, value: Optional[str]) -> bool:
+        """True if text looks like it contains a Microsoft Forms URL."""
+        if not value:
+            return False
+        return bool(_FORMS_HOST_RE.search(value))
+
     def _contains_text(self, value: Optional[str], needle: Optional[str]) -> bool:
         return self._looks_like_match(value, needle)
 
@@ -378,7 +388,7 @@ class TeamsScanner:
                    include_replies: bool = True, reply_limit: int = 50, download_files: bool = False,
                    max_files_per_channel: int = 50, team_id: Optional[str] = None, team_name: Optional[str] = None,
                    channel_id: Optional[str] = None, channel_name: Optional[str] = None,
-                   message_contains: Optional[str] = None) -> Dict:
+                   message_contains: Optional[str] = None, forms_links_only: bool = False) -> Dict:
         print("\n" + "=" * 60)
         print("Microsoft Teams Scanner")
         print("=" * 60)
@@ -410,6 +420,7 @@ class TeamsScanner:
                 "channel_id": channel_id,
                 "channel_name": channel_name,
                 "message_contains": message_contains,
+                "forms_links_only": forms_links_only,
             },
             "teams_group_count": len(teams_groups),
             "joined_team_count": len(teams),
@@ -462,6 +473,8 @@ class TeamsScanner:
 
                     for message in messages:
                         message_text = self._strip_html((message.get("body") or {}).get("content", ""))
+                        if forms_links_only and not self._text_has_forms_link(message_text):
+                            continue
                         if message_contains and not self._contains_text(message_text, message_contains):
                             # Keep replies out unless parent message matches requested text.
                             continue
@@ -572,6 +585,12 @@ def main():
     parser.add_argument("--channel-id", help="Only scan this Channel ID", default=None)
     parser.add_argument("--channel-name", help="Only scan channels matching this name text", default=None)
     parser.add_argument("--message-contains", help="Only keep messages containing this text", default=None)
+    parser.add_argument(
+        "--forms-links-only",
+        action="store_true",
+        help="With --include-channel-messages: only keep posts whose body contains a Microsoft Forms URL "
+        "(forms.office.com or forms.microsoft.com)",
+    )
 
     args = parser.parse_args()
 
@@ -603,6 +622,7 @@ def main():
         channel_id=args.channel_id,
         channel_name=args.channel_name,
         message_contains=args.message_contains,
+        forms_links_only=args.forms_links_only,
     )
 
 

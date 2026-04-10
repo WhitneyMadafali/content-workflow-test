@@ -70,6 +70,23 @@ python scripts/scan-teams-graph.py \
   -o analyses/message-search.json
 ```
 
+### Forms feedback in a channel (Forms MCP workflow)
+
+When Microsoft Forms links are posted in a channel, keep only parent messages whose body contains a Forms URL:
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py \
+  --team-name "OVES All" \
+  --channel-name "General" \
+  --include-channel-messages \
+  --forms-links-only \
+  --message-limit 100 \
+  --reply-limit 30 \
+  -o analyses/channel-forms-posts.json
+```
+
+Full guide: [docs/tools/forms-mcp.md](../../docs/tools/forms-mcp.md) (MkDocs: **Forms MCP**).
+
 ## Output and Session Files
 
 - JSON output path is controlled with `-o/--output`

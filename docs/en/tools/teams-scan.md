@@ -71,3 +71,20 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "Product Te
 - Name and text matching is case-insensitive.
 - Spacing/punctuation differences are tolerated (e.g. `NewManagerAssimilation` can match `New Manager Assimilation`).
 - Near matches are supported for minor typos.
+
+## 9) Microsoft Forms links in a channel (Forms MCP)
+
+When form links are posted in a channel, keep only parent messages whose body contains `forms.office.com` or `forms.microsoft.com`:
+
+```bash
+BROWSER=google-chrome python scripts/scan-teams-graph.py \
+  --team-name "OVES All" \
+  --channel-name "General" \
+  --include-channel-messages \
+  --forms-links-only \
+  --message-limit 100 \
+  --reply-limit 30 \
+  -o analyses/channel-forms-posts.json
+```
+
+See [Forms MCP](forms-mcp.md) for the full guide.
