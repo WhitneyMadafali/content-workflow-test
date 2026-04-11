@@ -59,6 +59,15 @@ python scripts/scan-teams-graph.py \
 python scripts/scan-teams-graph.py --list-teams
 ```
 
+### Which Microsoft account is used?
+
+The script reuses a token in `scripts/.teams_token_cache.json` (next to the script). If it says **Using cached account: someone@...** and that is not you, either:
+
+- Run with **`--select-account`** to open the browser and pick your account, or  
+- Delete **`scripts/.teams_token_cache.json`** and sign in again.
+
+`--team-name` and `--channel-name` must be **real** names in your tenant (not the words `"Your Team"` / `"Your Channel"` from examples).
+
 ### Target a Specific Team/Channel and Search Chat Text
 
 ```bash

@@ -63,7 +63,7 @@ python server.py
 
 **Location:** `./forms-mcp/`
 
-**Purpose:** MCP integration for **actual Microsoft Forms responses** (resolve form URL, list responses, summarize results).
+**Purpose:** MCP integration for **actual Microsoft Forms responses** (resolve form URL, list responses, summarize results). Channel scans from `tools/teams` can include **`forms_urls`**; use **`summarize_from_teams_export.py`** to feed those URLs into the summarizer without pasting links manually (see [forms-mcp/README.md](./forms-mcp/README.md)).
 
 **Usage:**
 

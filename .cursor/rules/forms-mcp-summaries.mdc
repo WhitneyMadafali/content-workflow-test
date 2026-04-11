@@ -1,0 +1,16 @@
+---
+description: Forms MCP — respond with prose summaries, not raw JSON
+alwaysApply: true
+---
+
+# Microsoft Forms response summaries
+
+When **Forms MCP** (`summarize_form_responses`, `summarize_from_teams_export.py`, `summarize-test`, or `scan_channel_forms_summary.sh`) returns form data:
+
+1. **Do not** paste full JSON, entire `respondent_texts` arrays, or raw `sample_respondents` in the chat **unless** the user explicitly asks for raw or exportable data.
+2. If **`executive_summary`** is present, **lead with it** (or paraphrase it in smoother prose), then add nuance from `by_question` only as needed.
+3. **Do** reply with a **clear thematic summary** in normal prose: form title, how many responses, rating questions (averages/ranges), and **per open-ended question** what respondents said (themes, sentiment, outliers, suggested actions).
+4. You may use **short quoted phrases** only where they help illustrate a theme.
+5. If the payload includes `synthesis_hint`, follow it when structuring the answer.
+
+The MCP tool result may still contain JSON for your analysis; the user-facing message should read like a short report, not a data dump.

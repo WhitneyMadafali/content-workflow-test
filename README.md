@@ -56,14 +56,13 @@ mkdocs serve
 
 ## Local Auth Cache Files (Not Committed)
 
-Some tools in this repo create local Microsoft auth token cache files after sign-in:
+These files are **not** part of the repository and **cannot** be downloaded with the project. Each developer or machine **creates** them the first time they sign in with the corresponding tool (browser / device code flow). Typical paths:
 
-- `tools/forms-mcp/.forms_token_cache.json`
-- `tools/teams/.teams_token_cache.json`
-- `tools/sharepoint/.sharepoint_token_cache.json`
+- `tools/forms-mcp/.forms_token_cache.json` — after `auth-test`, MCP use, or CLI against Forms  
+- `tools/teams/.teams_token_cache.json` — after Teams/Graph scanner sign-in  
+- `tools/sharepoint/.sharepoint_token_cache.json` — after SharePoint tool sign-in  
 
-These files are environment-specific and may contain sensitive auth state.
-They are intentionally ignored via `.gitignore` and should never be committed.
+They are environment-specific and may contain sensitive auth state. They are listed in **`.gitignore`** and must not be committed. **Setup:** follow each tool’s README (e.g. `tools/forms-mcp/README.md`); no separate “token file download” step exists.
 
 ---
 

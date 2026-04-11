@@ -11,6 +11,7 @@ Features:
 - Download channel files and include analysis metadata in JSON output
 """
 
+import importlib.util
 import json
 import re
 import html
@@ -21,6 +22,15 @@ import unicodedata
 from pathlib import Path
 from typing import Dict, List, Optional
 from datetime import datetime
+
+# Shared with tools/forms-mcp (Safe Links–aware Forms URL extraction for downstream summarize)
+_FORMS_EXTRACT_SPEC = importlib.util.spec_from_file_location(
+    "forms_url_extract",
+    Path(__file__).resolve().parents[2] / "forms-mcp" / "forms_url_extract.py",
+)
+assert _FORMS_EXTRACT_SPEC and _FORMS_EXTRACT_SPEC.loader
+_forms_url_extract = importlib.util.module_from_spec(_FORMS_EXTRACT_SPEC)
+_FORMS_EXTRACT_SPEC.loader.exec_module(_forms_url_extract)
 
 try:
     from msal import PublicClientApplication
@@ -87,19 +97,21 @@ class TeamsScanner:
             self.cache_file.write_text(self.token_cache.serialize())
             print(f"Token cache saved: {self.cache_file}")
 
-    def authenticate(self) -> bool:
+    def authenticate(self, force_select_account: bool = False) -> bool:
         print("\n" + "=" * 60)
         print("Microsoft Authentication Required")
         print("=" * 60)
 
         accounts = self.app.get_accounts()
-        if accounts:
+        if accounts and not force_select_account:
             result = self.app.acquire_token_silent(self.SCOPES, account=accounts[0])
             if result and "access_token" in result:
                 self.access_token = result["access_token"]
                 print(f"Using cached account: {accounts[0].get('username', 'unknown')}")
                 return True
 
+        if force_select_account and accounts:
+            print("Forcing account picker (--select-account); ignoring cached token.")
         print("Opening browser login...")
         result = self.app.acquire_token_interactive(scopes=self.SCOPES, prompt="select_account")
         if "access_token" in result:
@@ -243,6 +255,10 @@ class TeamsScanner:
         if not value:
             return False
         return bool(_FORMS_HOST_RE.search(value))
+
+    def _extract_forms_urls(self, html_content: Optional[str]) -> List[str]:
+        """Full https Forms URLs from message HTML (for tools/forms-mcp)."""
+        return _forms_url_extract.extract_forms_urls_from_html(html_content)
 
     def _message_has_forms_link(self, message_obj: Dict) -> bool:
         """
@@ -417,6 +433,13 @@ class TeamsScanner:
         elif team_name:
             teams = [team for team in teams if self._contains_text(team.get("displayName"), team_name)]
         print(f"Found {len(teams)} joined Teams")
+        if len(teams) == 0:
+            print(
+                "Hint: No teams to scan. "
+                "Use real --team-name / --channel-name values (not README placeholders like \"Your Team\"). "
+                "If this user should have Teams, run again with --select-account to sign in as yourself, "
+                "or remove tools/teams/scripts/.teams_token_cache.json to clear a cached account.",
+            )
 
         group_by_id = {g.get("id"): g for g in teams_groups if g.get("id")}
         results = {
@@ -485,7 +508,8 @@ class TeamsScanner:
                     msg_rows = []
 
                     for message in messages:
-                        message_text = self._strip_html((message.get("body") or {}).get("content", ""))
+                        raw_parent = (message.get("body") or {}).get("content", "") or ""
+                        message_text = self._strip_html(raw_parent)
                         if forms_links_only and not self._message_has_forms_link(message):
                             continue
                         if message_contains and not self._contains_text(message_text, message_contains):
@@ -500,6 +524,7 @@ class TeamsScanner:
                             "subject": message.get("subject"),
                             "summary": message.get("summary"),
                             "body_preview": message_text[:500],
+                            "forms_urls": self._extract_forms_urls(raw_parent),
                             "webUrl": message.get("webUrl"),
                             "replyToId": message.get("replyToId"),
                         }
@@ -508,17 +533,21 @@ class TeamsScanner:
                             replies = self.list_channel_message_replies(team_id, channel_id, message["id"], reply_limit)
                             total_replies += len(replies)
                             msg_row["replies_count"] = len(replies)
-                            msg_row["replies"] = [{
-                                "id": reply.get("id"),
-                                "createdDateTime": reply.get("createdDateTime"),
-                                "lastModifiedDateTime": reply.get("lastModifiedDateTime"),
-                                "from": self._sender_display_name(reply),
-                                "subject": reply.get("subject"),
-                                "summary": reply.get("summary"),
-                                "body_preview": self._strip_html(reply.get("body", {}).get("content", ""))[:500],
-                                "webUrl": reply.get("webUrl"),
-                                "replyToId": reply.get("replyToId"),
-                            } for reply in replies]
+                            msg_row["replies"] = []
+                            for reply in replies:
+                                raw_reply = (reply.get("body") or {}).get("content", "") or ""
+                                msg_row["replies"].append({
+                                    "id": reply.get("id"),
+                                    "createdDateTime": reply.get("createdDateTime"),
+                                    "lastModifiedDateTime": reply.get("lastModifiedDateTime"),
+                                    "from": self._sender_display_name(reply),
+                                    "subject": reply.get("subject"),
+                                    "summary": reply.get("summary"),
+                                    "body_preview": self._strip_html(raw_reply)[:500],
+                                    "forms_urls": self._extract_forms_urls(raw_reply),
+                                    "webUrl": reply.get("webUrl"),
+                                    "replyToId": reply.get("replyToId"),
+                                })
 
                         msg_rows.append(msg_row)
 
@@ -604,11 +633,16 @@ def main():
         help="With --include-channel-messages: only keep posts whose body contains a Microsoft Forms URL "
         "(forms.office.com or forms.microsoft.com)",
     )
+    parser.add_argument(
+        "--select-account",
+        action="store_true",
+        help="Open the browser to choose a Microsoft account (do not reuse the cached token).",
+    )
 
     args = parser.parse_args()
 
     scanner = TeamsScanner()
-    if not scanner.authenticate():
+    if not scanner.authenticate(force_select_account=args.select_account):
         sys.exit(1)
 
     if args.list_teams:
@@ -618,6 +652,12 @@ def main():
         elif args.team_name:
             teams = [team for team in teams if scanner._contains_text(team.get("displayName"), args.team_name)]
         print(f"\nJoined teams: {len(teams)}")
+        if len(teams) == 0:
+            print(
+                "No teams returned for this account. Use your real work account, "
+                "or run with --select-account to sign in as yourself. "
+                "If this account truly has no Teams, /me/joinedTeams will stay empty.",
+            )
         for team in teams:
             print(f"- {team.get('displayName')} ({team.get('id')})")
         return
