@@ -14,12 +14,22 @@ content-workflow/
 │   ├── frameworks.md  # Conceptual models and content-as-code philosophy
 │   ├── workflows.md   # Content lifecycle process documentation
 │   └── delivery-intents.md  # Domain strategy and delivery documentation
-├── tools/             # Content workflow automation tools
-│   └── sharepoint/    # SharePoint content extraction (genesis stage)
+├── tools/             # Content workflow automation tools (see tools/README.md)
+│   ├── sharepoint/    # SharePoint content extraction (genesis stage)
+│   ├── teams/         # Teams channel scan (Graph)
+│   └── forms-mcp/     # Microsoft Forms responses via MCP (see below)
 ├── hooks/             # MkDocs build hooks
 ├── overrides/         # MkDocs theme customization
 └── mkdocs.yml         # Documentation site configuration
 ```
+
+### Forms MCP (`tools/forms-mcp`)
+
+**What it is:** A [Model Context Protocol](https://modelcontextprotocol.io) server that connects **Cursor** (or another MCP client) to **Microsoft Forms** so you can **read and summarize submitted responses** through the Forms API—not by scraping Teams chat.
+
+**What it is not:** It does not replace the “Forms” stage in the lifecycle diagram above (decks/sites intents); it is **tooling** for **survey/quiz response data** from `forms.office.com`.
+
+**Where to start:** [tools/forms-mcp/README.md](tools/forms-mcp/README.md) (install, Cursor MCP config, auth, summarize). Overview of all tools: [tools/README.md](tools/README.md).
 
 ---
 
