@@ -72,7 +72,7 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "产品团�
 - 可容忍空格与标点差异（例如 `NewManagerAssimilation` 也可匹配 `New Manager Assimilation`）。
 - 支持轻微拼写误差的近似匹配。
 
-## 9) Teams 频道中的 Microsoft Forms 链接（Forms MCP）
+## 9) Teams 频道中的 Microsoft Forms 链接
 
 当表单链接发布在频道内时，可只导出正文包含 `forms.office.com` 或 `forms.microsoft.com` 的父级消息：
 
@@ -87,4 +87,4 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py \
   -o analyses/channel-forms-posts.json
 ```
 
-详细说明见 [Forms MCP](forms-mcp.md)。
+详细说明见 [Teams 频道中的 Forms 链接](forms-mcp.md)。

@@ -72,7 +72,7 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "Equipe Pro
 - Les differences d'espaces et de ponctuation sont tolerees.
 - Les correspondances approximatives (petites fautes) sont prises en charge.
 
-## 9) Liens Microsoft Forms dans un canal (MCP Forms)
+## 9) Liens Microsoft Forms dans un canal
 
 Lorsque des liens Forms sont publies dans un canal, ne conserver que les messages parents dont le corps contient `forms.office.com` ou `forms.microsoft.com` :
 
@@ -87,4 +87,4 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py \
   -o analyses/channel-forms-posts.json
 ```
 
-Guide complet : [MCP Forms](forms-mcp.md).
+Guide complet : [Liens Forms dans Teams](forms-mcp.md).

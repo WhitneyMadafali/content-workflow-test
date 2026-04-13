@@ -31,6 +31,8 @@ content-workflow/
 
 **Where to start:** [tools/forms-mcp/README.md](tools/forms-mcp/README.md) (install, Cursor MCP config, auth, summarize). Overview of all tools: [tools/README.md](tools/README.md).
 
+**Scanning guide (MkDocs):** The site uses two separate pages so readers do not mix them up: [Forms responses MCP](docs/tools/forms-responses-mcp.md) (Forms API / `tools/forms-mcp`) and [Forms links in Teams](docs/tools/forms-mcp.md) (Teams scan + `tools/teams-mcp`).
+
 ---
 
 ## Content Lifecycle Stages

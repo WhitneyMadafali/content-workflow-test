@@ -1,11 +1,10 @@
-# Forms MCP（Teams 频道中的 Forms 反馈）
+# Teams 频道中的 Forms 链接（扫描与 Teams MCP）
 
-本页说明如何在 **Microsoft Forms 链接或说明发布在 Teams 频道** 的场景下，扫描并导出相关频道消息（JSON）。
+!!! warning "此页不是读取表单答卷的 MCP"
 
-!!! note "说明"
+    若要在 **Cursor** 中通过 **Forms API** 读取或总结 **真实提交记录**，请使用 **[Forms 答卷 MCP](forms-responses-mcp.md)**（仓库路径 `tools/forms-mcp`）。
 
-    本仓库提供 `tools/forms-mcp` 独立 MCP 服务，用于读取 **Microsoft Forms 实际答卷**。同时保留通过 Teams 扫描频道内 Forms 链接的流程。  
-    本流程 **不会** 调用 Microsoft Forms 后台拉取全部答卷明细；若需表单原始数据，请使用 Forms 导出、Power Automate 或 Graph Forms API（依租户策略而定）。
+    **本页**仅说明：当 **Microsoft Forms 链接或说明发布在 Teams 频道** 时，如何用 **Teams 扫描** 或 **Teams MCP** 导出或预览 **频道帖子**（含链接的文本）。**不会**从 Forms 后台拉取全部答卷明细；需要原始答卷数据时请使用 Forms 导出、Power Automate 或 Graph Forms API（依租户策略而定）。
 
 ## 1) 适用场景
 
@@ -61,9 +60,10 @@ BROWSER=google-chrome .venv/bin/python scripts/scan-teams-graph.py \
 | 能力 | 说明 |
 |------|------|
 | 频道帖子与回复 | 可导出为 JSON（Teams 扫描）或由 MCP 返回预览文本 |
-| Forms 答卷数据库 | **不在**本流程范围内；需单独集成 Forms / 导出 |
+| Forms 答卷数据库 | **不在**本流程范围内；需使用 [Forms 答卷 MCP](forms-responses-mcp.md) 或导出 / Graph |
 
 ## 6) 相关页面
 
+- [Forms 答卷 MCP](forms-responses-mcp.md)
 - [Teams 扫描](teams-scan.md)
 - [Teams MCP](teams-mcp.md)

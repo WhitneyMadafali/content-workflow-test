@@ -1,11 +1,10 @@
-# Forms MCP (Forms feedback in Teams channels)
+# Forms links in Teams channels (scan + Teams MCP)
 
-This page explains how to scan and export Teams **channel messages** as JSON when **Microsoft Forms links or instructions are posted in a channel**.
+!!! warning "This page is not the Forms responses MCP"
 
-!!! note "Important"
+    To read or summarize **real Microsoft Forms submissions** from **Cursor** via the **Forms API**, use **[Forms responses MCP](forms-responses-mcp.md)** (repo path `tools/forms-mcp`).
 
-    This repo now ships a standalone `tools/forms-mcp` server for reading **actual Microsoft Forms responses**. The Teams scan flow remains useful for channel posts that mention Forms links.  
-    This workflow does **not** pull the full Forms response database from the Forms service; for raw submissions use Forms export, Power Automate, or Graph Forms APIs (subject to tenant policy).
+    **This page** only covers exporting or previewing **Teams channel posts** when **Microsoft Forms URLs or instructions appear in a channel**, using **Teams Scan** or **Teams MCP**. It does **not** pull the full Forms response store; for raw submissions use Forms export, Power Automate, or Graph Forms APIs (subject to tenant policy).
 
 ## 1) When to use
 
@@ -61,9 +60,10 @@ BROWSER=google-chrome .venv/bin/python scripts/scan-teams-graph.py \
 | Capability | Notes |
 |------------|--------|
 | Channel posts and replies | Exported as JSON (Teams scan) or returned as previews (MCP) |
-| Full Forms response store | **Out of scope** for this workflow |
+| Full Forms response store | **Out of scope** here; use [Forms responses MCP](forms-responses-mcp.md) or export / Graph |
 
 ## 6) See also
 
+- [Forms responses MCP](forms-responses-mcp.md)
 - [Teams Scan](teams-scan.md)
 - [Teams MCP](teams-mcp.md)

@@ -72,7 +72,7 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py --team-name "Product Te
 - Spacing/punctuation differences are tolerated (e.g. `NewManagerAssimilation` can match `New Manager Assimilation`).
 - Near matches are supported for minor typos.
 
-## 9) Microsoft Forms links in a channel (Forms MCP)
+## 9) Microsoft Forms links in a channel
 
 When form links are posted in a channel, keep only parent messages whose body contains `forms.office.com` or `forms.microsoft.com`:
 
@@ -87,4 +87,4 @@ BROWSER=google-chrome python scripts/scan-teams-graph.py \
   -o analyses/channel-forms-posts.json
 ```
 
-See [Forms MCP](forms-mcp.md) for the full guide.
+See [Forms links in Teams](forms-mcp.md) for the full guide.

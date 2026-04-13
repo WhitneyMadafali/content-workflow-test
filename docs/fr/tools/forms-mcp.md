@@ -1,11 +1,10 @@
-# MCP Forms (retours Forms dans les canaux Teams)
+# Liens Forms dans les canaux Teams (analyse + MCP Teams)
 
-Cette page explique comment analyser et exporter des **messages de canal** Teams au format JSON lorsque des **liens ou consignes Microsoft Forms sont publies dans un canal**.
+!!! warning "Cette page n'est pas le MCP des reponses Forms"
 
-!!! note "Important"
+    Pour lire ou resumer les **vraies soumissions Microsoft Forms** depuis **Cursor** via l'**API Forms**, utilisez **[MCP reponses Forms](forms-responses-mcp.md)** (chemin depot `tools/forms-mcp`).
 
-    Ce depot fournit maintenant un serveur autonome `tools/forms-mcp` pour lire les **reponses Microsoft Forms**. Le flux Teams reste utile pour les messages de canal contenant des liens Forms.  
-    Ce flux **ne** recupere **pas** la base complete des reponses Forms ; pour les donnees brutes, utilisez l'export Forms, Power Automate ou les API Graph Forms (selon la politique du tenant).
+    **Cette page** couvre uniquement l'export ou l'apercu des **messages de canal Teams** lorsque des **URL ou consignes Microsoft Forms** y apparaissent, via **Analyse Teams** ou **MCP Teams**. Elle **ne** recupere **pas** la base complete des reponses Forms ; pour les donnees brutes, utilisez l'export Forms, Power Automate ou les API Graph Forms (selon la politique du tenant).
 
 ## 1) Cas d'usage
 
@@ -61,9 +60,10 @@ BROWSER=google-chrome .venv/bin/python scripts/scan-teams-graph.py \
 | Capacite | Detail |
 |----------|--------|
 | Messages et reponses de canal | Export JSON (analyse Teams) ou apercus (MCP) |
-| Base de reponses Forms complete | **Hors perimetre** de ce flux |
+| Base de reponses Forms complete | **Hors perimetre** ici ; utilisez [MCP reponses Forms](forms-responses-mcp.md) ou export / Graph |
 
 ## 6) Voir aussi
 
+- [MCP reponses Forms](forms-responses-mcp.md)
 - [Analyse Teams](teams-scan.md)
 - [MCP Teams](teams-mcp.md)

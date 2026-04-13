@@ -39,7 +39,7 @@ extra:
   generator: false
   oves_doc_version: "0.1.2"
   oves_last_editor: "Janice"
-  oves_revision_summary: "Add Forms MCP docs for Teams channel form feedback"
+  oves_revision_summary: "Split Forms responses MCP vs Teams channel Forms links in docs nav"
   oves_revision_date: "2026-04-10"
   alternate:
     - name: 中文
@@ -88,7 +88,8 @@ plugins:
             SharePoint Scan: SharePoint 扫描
             Teams Scan: Teams 扫描
             Teams MCP: Teams MCP
-            Forms MCP: Forms MCP（频道表单）
+            Forms responses MCP: Forms 答卷 MCP
+            Forms links in Teams: Teams 频道中的 Forms 链接
         - locale: en
           name: English
           build: true
@@ -99,7 +100,8 @@ plugins:
             SharePoint Scan: SharePoint Scan
             Teams Scan: Teams Scan
             Teams MCP: Teams MCP
-            Forms MCP: Forms MCP
+            Forms responses MCP: Forms responses MCP
+            Forms links in Teams: Forms links in Teams
         - locale: fr
           name: Français
           build: true
@@ -110,7 +112,8 @@ plugins:
             SharePoint Scan: Analyse SharePoint
             Teams Scan: Analyse Teams
             Teams MCP: MCP Teams
-            Forms MCP: MCP Forms
+            Forms responses MCP: MCP reponses Forms
+            Forms links in Teams: Liens Forms dans Teams
       reconfigure_material: true
       reconfigure_search: true
 
@@ -123,4 +126,5 @@ nav:
   - SharePoint Scan: tools/sharepoint-scan.md
   - Teams Scan: tools/teams-scan.md
   - Teams MCP: tools/teams-mcp.md
-  - Forms MCP: tools/forms-mcp.md
+  - Forms responses MCP: tools/forms-responses-mcp.md
+  - Forms links in Teams: tools/forms-mcp.md
