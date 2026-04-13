@@ -39,8 +39,8 @@ extra:
   generator: false
   oves_doc_version: "0.1.2"
   oves_last_editor: "Janice"
-  oves_revision_summary: "Split Forms responses MCP vs Teams channel Forms links in docs nav"
-  oves_revision_date: "2026-04-10"
+  oves_revision_summary: "Add step-by-step Forms responses MCP procedure to MkDocs"
+  oves_revision_date: "2026-04-13"
   alternate:
     - name: 中文
       link: /content-workflow/
