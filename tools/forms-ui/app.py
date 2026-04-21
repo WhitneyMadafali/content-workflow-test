@@ -12,7 +12,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from flask import Flask, render_template, request
+import msal
+from flask import Flask, redirect, render_template, request, session, url_for
 
 
 def _load_forms_server_module():
@@ -33,6 +34,10 @@ FORMS_SERVER = None
 TEAMS_SCANNER_MODULE = None
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("FORMS_UI_SECRET_KEY", "dev-insecure-secret-change-me")
+app.config["SESSION_COOKIE_SECURE"] = os.environ.get("FORMS_UI_SESSION_SECURE", "1").strip() not in {"0", "false", "False"}
+app.config["SESSION_COOKIE_HTTPONLY"] = True
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 
 
 def _safe_list(value: Any) -> List[str]:
@@ -63,10 +68,63 @@ def _get_forms_server():
     return FORMS_SERVER
 
 
+def _oauth_scopes() -> List[str]:
+    return [
+        "User.Read",
+        "Group.Read.All",
+        "Team.ReadBasic.All",
+        "Channel.ReadBasic.All",
+        "ChannelMessage.Read.All",
+        "Files.Read.All",
+        "Sites.Read.All",
+        "Chat.Read",
+        "Chat.ReadBasic",
+    ]
+
+
+def _oauth_authority() -> str:
+    tenant = os.environ.get("MS_TENANT_ID", "common").strip() or "common"
+    return f"https://login.microsoftonline.com/{tenant}"
+
+
+def _oauth_redirect_uri() -> str:
+    configured = os.environ.get("MS_REDIRECT_URI", "").strip()
+    if configured:
+        return configured
+    return url_for("auth_callback", _external=True)
+
+
+def _oauth_client_id(scanner_module: Any) -> str:
+    env_client_id = os.environ.get("MS_CLIENT_ID", "").strip()
+    if env_client_id:
+        return env_client_id
+    return str(getattr(scanner_module.TeamsScanner, "CLIENT_ID", "")).strip()
+
+
+def _build_confidential_client(scanner_module: Any) -> Any:
+    client_id = _oauth_client_id(scanner_module)
+    client_secret = os.environ.get("MS_CLIENT_SECRET", "").strip()
+    if not client_id or not client_secret:
+        raise RuntimeError(
+            "Missing OAuth configuration. Set MS_CLIENT_ID and MS_CLIENT_SECRET in Vercel environment variables."
+        )
+    return msal.ConfidentialClientApplication(
+        client_id=client_id,
+        authority=_oauth_authority(),
+        client_credential=client_secret,
+    )
+
+
 def _get_teams_scanner(force_select_account: bool = False):
     module = _load_teams_scanner_module()
     scanner = module.TeamsScanner()
     scanner.SCOPES = list(dict.fromkeys(scanner.SCOPES + ["Chat.Read", "Chat.ReadBasic"]))
+    token = (session.get("ms_access_token") or "").strip()
+    if token and not force_select_account:
+        scanner.access_token = token
+        return scanner
+
+    # Local fallback for non-serverless runs where browser auth is acceptable.
     ok = scanner.authenticate(force_select_account=force_select_account)
     if not ok:
         raise RuntimeError("Microsoft Teams authentication failed. Try again and sign in with the right account.")
@@ -132,6 +190,8 @@ def _render_page(
     summary_scope: str = "all",
     fast_mode: bool = True,
 ) -> Any:
+    if not connected:
+        connected = bool((session.get("ms_access_token") or "").strip())
     team_name = ""
     for t in teams or []:
         if str(t.get("id") or "") == selected_team_id:
@@ -533,6 +593,53 @@ def _human_question_title(question: Dict[str, Any], ordinal: int) -> str:
 @app.get("/")
 def index():
     return _render_page()
+
+
+@app.get("/auth/login")
+def auth_login():
+    try:
+        module = _load_teams_scanner_module()
+        app_client = _build_confidential_client(module)
+        state = os.urandom(16).hex()
+        session["oauth_state"] = state
+        auth_url = app_client.get_authorization_request_url(
+            scopes=_oauth_scopes(),
+            state=state,
+            redirect_uri=_oauth_redirect_uri(),
+            prompt="select_account",
+        )
+        return redirect(auth_url)
+    except Exception as exc:
+        return _render_page(error=f"Microsoft sign-in is not configured yet: {exc}")
+
+
+@app.get("/auth/callback")
+def auth_callback():
+    if request.args.get("state", "") != session.get("oauth_state", ""):
+        return _render_page(error="OAuth state mismatch. Please try signing in again.")
+    code = (request.args.get("code") or "").strip()
+    if not code:
+        err = request.args.get("error_description") or request.args.get("error") or "Missing OAuth authorization code."
+        return _render_page(error=f"Microsoft sign-in failed: {err}")
+
+    try:
+        module = _load_teams_scanner_module()
+        app_client = _build_confidential_client(module)
+        result = app_client.acquire_token_by_authorization_code(
+            code=code,
+            scopes=_oauth_scopes(),
+            redirect_uri=_oauth_redirect_uri(),
+        )
+    except Exception as exc:
+        return _render_page(error=f"Microsoft sign-in callback failed: {exc}")
+    access_token = str(result.get("access_token") or "").strip()
+    if not access_token:
+        err = result.get("error_description") or result.get("error") or "Unknown token exchange error."
+        return _render_page(error=f"Microsoft sign-in failed: {err}")
+
+    session["ms_access_token"] = access_token
+    session.pop("oauth_state", None)
+    return redirect(url_for("index"))
 
 
 @app.post("/teams/simple")

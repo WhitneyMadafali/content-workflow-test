@@ -65,10 +65,12 @@
           <form method="post" action="/teams/simple" id="simple-mode-form">
             <div class="section">
               <label class="label">Account</label>
-              <button class="secondary signin" type="submit" name="action" value="sign_in" formnovalidate>
-                <span class="ms-icon"><i class="ms1"></i><i class="ms2"></i><i class="ms3"></i><i class="ms4"></i></span>
-                <span>Sign in with Microsoft</span>
-              </button>
+              <a href="/auth/login" style="text-decoration:none;">
+                <button class="secondary signin" type="button">
+                  <span class="ms-icon"><i class="ms1"></i><i class="ms2"></i><i class="ms3"></i><i class="ms4"></i></span>
+                  <span>Sign in with Microsoft</span>
+                </button>
+              </a>
               {% if connected %}
               <div class="status ok"><span class="dot"></span><span>Connected to Microsoft</span></div>
               {% else %}
