@@ -15,6 +15,7 @@ import importlib.util
 import json
 import re
 import html
+import os
 import sys
 import argparse
 import difflib
@@ -77,6 +78,16 @@ class TeamsScanner:
         script_dir = Path(__file__).parent.parent  # tools/teams
         self.cache_file = script_dir / cache_file
         self.token_cache = self._load_cache()
+        # Teams tab scan requires admin-consent scope; enable only when explicitly requested.
+        self.enable_tabs_scan = os.environ.get("TEAMS_ENABLE_TABS_SCAN", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }
+        self.scopes = list(self.SCOPES)
+        if self.enable_tabs_scan:
+            self.scopes = list(dict.fromkeys(self.scopes + ["TeamsTab.Read.All"]))
         self.app = PublicClientApplication(
             self.CLIENT_ID,
             authority=self.AUTHORITY,
@@ -104,7 +115,7 @@ class TeamsScanner:
 
         accounts = self.app.get_accounts()
         if accounts and not force_select_account:
-            result = self.app.acquire_token_silent(self.SCOPES, account=accounts[0])
+            result = self.app.acquire_token_silent(self.scopes, account=accounts[0])
             if result and "access_token" in result:
                 self.access_token = result["access_token"]
                 print(f"Using cached account: {accounts[0].get('username', 'unknown')}")
@@ -113,7 +124,7 @@ class TeamsScanner:
         if force_select_account and accounts:
             print("Forcing account picker (--select-account); ignoring cached token.")
         print("Opening browser login...")
-        result = self.app.acquire_token_interactive(scopes=self.SCOPES, prompt="select_account")
+        result = self.app.acquire_token_interactive(scopes=self.scopes, prompt="select_account")
         if "access_token" in result:
             self.access_token = result["access_token"]
             self._save_cache()
@@ -307,6 +318,13 @@ class TeamsScanner:
             f"?$top={safe_limit}"
         )
         return self._make_paginated_request(endpoint, max_items=safe_limit)
+
+    def list_channel_tabs(self, team_id: str, channel_id: str) -> List[Dict]:
+        endpoint = (
+            f"/teams/{team_id}/channels/{channel_id}/tabs"
+            "?$select=id,displayName,webUrl,configuration"
+        )
+        return self._make_paginated_request(endpoint)
 
     def list_channel_message_replies(self, team_id: str, channel_id: str, message_id: str, limit: int = 50) -> List[Dict]:
         safe_limit = max(1, min(limit, 200))
@@ -558,6 +576,43 @@ class TeamsScanner:
                         print(f"    Messages: {len(msg_rows)}, Replies: {total_replies}")
                     else:
                         print(f"    Messages: {len(msg_rows)}")
+
+                if team_id and channel_id and self.enable_tabs_scan:
+                    tab_rows: List[Dict] = []
+                    try:
+                        tabs = self.list_channel_tabs(team_id, channel_id)
+                    except Exception:
+                        tabs = []
+
+                    for tab in tabs:
+                        config = tab.get("configuration") or {}
+                        combined = " ".join(
+                            [
+                                str(tab.get("displayName") or ""),
+                                str(tab.get("webUrl") or ""),
+                                str(config.get("contentUrl") or ""),
+                                str(config.get("websiteUrl") or ""),
+                                str(config.get("entityId") or ""),
+                            ]
+                        )
+                        forms_urls = self._extract_forms_urls(combined)
+                        if not forms_urls:
+                            continue
+                        tab_rows.append(
+                            {
+                                "id": tab.get("id"),
+                                "displayName": tab.get("displayName"),
+                                "webUrl": tab.get("webUrl"),
+                                "contentUrl": config.get("contentUrl"),
+                                "websiteUrl": config.get("websiteUrl"),
+                                "forms_urls": forms_urls,
+                            }
+                        )
+
+                    channel_row["tabs_count"] = len(tab_rows)
+                    channel_row["tabs"] = tab_rows
+                    if tab_rows:
+                        print(f"    Tabs with Forms links: {len(tab_rows)}")
 
                 if download_files and team_id and channel_id:
                     folder_item = self.get_channel_files_folder(team_id, channel_id)

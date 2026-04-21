@@ -78,6 +78,27 @@ BROWSER=google-chrome .venv/bin/python server.py
 
 ---
 
+### Forms UI (simple web front-end)
+
+**Location:** `./forms-ui/`
+
+**Purpose:** Browser-based front-end for non-technical users to paste a Forms URL and generate summaries without MCP setup.
+
+**Usage:**
+
+```bash
+cd tools/forms-ui
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+BROWSER=google-chrome .venv/bin/python app.py
+```
+
+Then open: `http://127.0.0.1:7860`
+
+**Documentation:** See [forms-ui/README.md](./forms-ui/README.md).
+
+---
+
 ## Future Tools
 
 As workflow needs evolve, additional tools will be added:

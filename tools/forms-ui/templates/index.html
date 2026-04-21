@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Teams MCP Assistant</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif; background: #060611; color: #e8e8ff; }
+      .wrap { max-width: 1400px; margin: 0 auto; padding: 14px; }
+      .shell { display: grid; grid-template-columns: 390px 1fr; min-height: 88vh; border: 1px solid #242244; border-radius: 12px; overflow: hidden; background: #090916; }
+      .left { border-right: 1px solid #242244; padding: 14px; display: flex; flex-direction: column; }
+      .right { padding: 16px; background: #070712; }
+      .title { font-size: 20px; margin: 0; }
+      .muted { color: #8e8bb7; }
+      .small { font-size: 12px; }
+      .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #8e8bb7; margin-bottom: 6px; display: block; }
+      .section { border-top: 1px solid #1f1d3a; padding-top: 12px; margin-top: 12px; }
+      .row { display: grid; gap: 10px; }
+      .row-2 { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+      input, select, button { width: 100%; border-radius: 9px; border: 1px solid #2d2a54; background: #121129; color: #efeeff; padding: 10px 11px; font-size: 14px; }
+      button { background: linear-gradient(90deg, #6f2dff, #7c3aed); border: 0; cursor: pointer; font-weight: 600; }
+      button.secondary { background: #16152c; border: 1px solid #2d2a54; }
+      .signin { display: flex; align-items: center; gap: 8px; }
+      .ms-icon { width: 14px; height: 14px; display: inline-grid; grid-template-columns: 1fr 1fr; gap: 1px; }
+      .ms-icon i { display: block; }
+      .ms1 { background: #f25022; } .ms2 { background: #7fba00; } .ms3 { background: #00a4ef; } .ms4 { background: #ffb900; }
+      .status { margin-top: 10px; display: inline-flex; align-items: center; gap: 7px; border-radius: 999px; padding: 5px 10px; font-size: 12px; }
+      .ok { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35); color: #7df2c7; }
+      .off { background: rgba(148, 163, 184, 0.12); border: 1px solid rgba(148, 163, 184, 0.22); color: #c4c8de; }
+      .dot { width: 8px; height: 8px; border-radius: 999px; background: currentColor; }
+      .actions { margin-top: auto; padding-top: 14px; border-top: 1px solid #1f1d3a; }
+      .card { background: #131225; border: 1px solid #232044; border-radius: 12px; padding: 14px; }
+      .main-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+      .chips { display: flex; gap: 8px; }
+      .chip { border-radius: 999px; font-size: 11px; padding: 4px 8px; border: 1px solid #3a3268; color: #d1cbff; background: #201c3e; }
+      .metrics { margin-top: 12px; display: grid; gap: 10px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .metric { background: #14132a; border: 1px solid #26224a; border-radius: 12px; padding: 14px; }
+      .metric .v { font-size: 34px; line-height: 1; }
+      .metric .l { margin-top: 4px; font-size: 12px; color: #9e98c9; }
+      .summary-box { margin-top: 12px; }
+      .decisions { margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .decision { background: #14132a; border: 1px solid #26224a; border-radius: 10px; padding: 12px; min-height: 78px; }
+      .decision .k { color: #8d84d8; font-size: 11px; text-transform: uppercase; }
+      .error { margin-top: 12px; color: #ffd8d8; background: #441018; border: 1px solid #7a2231; border-radius: 8px; padding: 10px; }
+      .summary-text { margin: 0; line-height: 1.55; white-space: pre-line; }
+      .loading-overlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(6, 6, 17, 0.45); z-index: 9999; }
+      .loading-box { background: #111121; border: 1px solid #2a2750; border-radius: 10px; padding: 11px 13px; display: flex; align-items: center; gap: 10px; }
+      .spinner { width: 18px; height: 18px; border: 2px solid #5f5a8f; border-top-color: #a78bfa; border-radius: 999px; animation: spin .8s linear infinite; }
+      @keyframes spin { to { transform: rotate(360deg);} }
+      @media (max-width: 1080px) { .shell { grid-template-columns: 1fr; } .metrics { grid-template-columns: 1fr 1fr; } .decisions { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-box"><span class="spinner"></span><span id="loading-text">Loading data...</span></div>
+    </div>
+
+    <div class="wrap">
+      <div class="shell">
+        <aside class="left">
+          <h1 class="title">Teams MCP Assistant</h1>
+          <p class="muted small">Microsoft Graph · MCP powered</p>
+
+          <form method="post" action="/teams/simple" id="simple-mode-form">
+            <div class="section">
+              <label class="label">Account</label>
+              <button class="secondary signin" type="submit" name="action" value="sign_in" formnovalidate>
+                <span class="ms-icon"><i class="ms1"></i><i class="ms2"></i><i class="ms3"></i><i class="ms4"></i></span>
+                <span>Sign in with Microsoft</span>
+              </button>
+              {% if connected %}
+              <div class="status ok"><span class="dot"></span><span>Connected to Microsoft</span></div>
+              {% else %}
+              <div class="status off"><span class="dot"></span><span>Not connected</span></div>
+              {% endif %}
+            </div>
+
+            <div class="section">
+              <label class="label" for="simple_team_id">Team</label>
+              <select id="simple_team_id" name="team_id" required onchange="autoLoadChannels()">
+                <option value="">Select team</option>
+                {% for team in teams %}
+                <option value="{{ team.id }}" {% if team.id == selected_team_id %}selected{% endif %}>{{ team.displayName }}</option>
+                {% endfor %}
+              </select>
+
+              <div class="row">
+                <div>
+                  <label class="label" for="simple_channel_id">Channel</label>
+                  <select id="simple_channel_id" name="channel_id" onchange="autoRefreshChannel()">
+                    <option value="">Select channel</option>
+                    {% for channel in channels %}
+                    <option value="{{ channel.id }}" {% if channel.id == selected_channel_id %}selected{% endif %}>{{ channel.displayName }}</option>
+                    {% endfor %}
+                  </select>
+                  {% if selected_team_id %}
+                  <p class="muted small">Loaded channels: {{ channels|length }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <label class="label">Date Range</label>
+              <div class="row-2">
+                <input id="date_from" name="date_from" type="date" value="{{ date_from }}" />
+                <input id="date_to" name="date_to" type="date" value="{{ date_to }}" />
+              </div>
+            </div>
+
+            <div class="section">
+              <label class="label" for="summary_scope">Summary Scope</label>
+              <select id="summary_scope" name="summary_scope" onchange="togglePersonFilter(this.value)">
+                <option value="all" {% if summary_scope != "person" %}selected{% endif %}>Entire channel</option>
+                <option value="person" {% if summary_scope == "person" %}selected{% endif %}>One person</option>
+              </select>
+              <div style="margin-top:10px;">
+                <input type="hidden" name="fast_mode" value="0" />
+                <label class="small muted" style="display:flex; gap:8px; align-items:center;">
+                  <input type="checkbox" name="fast_mode" value="1" {% if fast_mode %}checked{% endif %} style="width:auto;" />
+                  Fast mode (loads people from recent parent posts only)
+                </label>
+              </div>
+              <div id="person_filter_wrap" style="{% if summary_scope != 'person' %}display:none;{% endif %}; margin-top:10px;">
+                <select id="simple_sender_filter" name="sender_filter">
+                  <option value="">Select person</option>
+                  {% for person in sender_options %}
+                  <option value="{{ person }}" {% if person == sender_filter %}selected{% endif %}>{{ person }}</option>
+                  {% endfor %}
+                </select>
+                {% if selected_channel_id %}
+                <p class="muted small">People loaded: {{ sender_options|length }}</p>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" name="action" value="summarize">Generate summary</button>
+            </div>
+
+            <input type="hidden" name="message_limit" value="{{ message_limit }}" />
+            <input type="hidden" name="max_responses" value="{{ max_responses }}" />
+            <input type="hidden" id="simple_form_action" name="action" value="" />
+          </form>
+        </aside>
+
+        <main class="right">
+          {% set s = summary_data %}
+          <div class="main-head">
+            <div>
+              <h2 style="margin:0; font-size:24px;">{{ s.name or (sender_filter or "Channel Summary") }}</h2>
+              <div class="muted small">{{ selected_team_name or "Choose team" }} · {{ selected_channel_name or "Choose channel" }} · {{ s.range or (date_from ~ " - " ~ date_to) }}</div>
+            </div>
+            <div class="chips">
+              <span class="chip">Summary ready</span>
+              <span class="chip">{{ channel_messages|length }} items</span>
+            </div>
+          </div>
+
+          <div class="metrics">
+            <div class="metric"><div class="v">{{ (s.metrics.messages if s.metrics else channel_messages|length) or 0 }}</div><div class="l">Messages sent</div></div>
+            <div class="metric"><div class="v">{{ (s.metrics.decisions if s.metrics else 0) or 0 }}</div><div class="l">Key decisions</div></div>
+            <div class="metric"><div class="v">{{ (s.metrics.active_days if s.metrics else 0) or 0 }}</div><div class="l">Days active</div></div>
+            <div class="metric"><div class="v">{{ (s.metrics.threads if s.metrics else 0) or 0 }}</div><div class="l">Threads started</div></div>
+          </div>
+
+          <div class="card summary-box">
+            {% if channel_summary_text %}
+            <p class="summary-text">{{ s.overview or channel_summary_text }}</p>
+            {% else %}
+            <p class="muted" style="margin:0;">Generate a summary to see results here.</p>
+            {% endif %}
+          </div>
+
+          {% if s.decisions %}
+          <div class="decisions">
+            {% for d in s.decisions %}
+            <div class="decision"><div class="k">Decision {{ loop.index }}</div><div>{{ d }}</div></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if channel_messages %}
+          <div class="card" style="margin-top: 12px;">
+            <h3 style="margin:0 0 8px; font-size:16px;">Evidence</h3>
+            <ul>
+              {% for m in channel_messages[:8] %}
+              <li><strong>{{ m.from or "Unknown" }}</strong> - {{ m.body_preview }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if error %}
+          <div class="error">{{ error }}</div>
+          {% endif %}
+        </main>
+      </div>
+    </div>
+
+    <script>
+      function autoLoadChannels() {
+        const team = document.getElementById('simple_team_id');
+        const channel = document.getElementById('simple_channel_id');
+        const action = document.getElementById('simple_form_action');
+        const form = document.getElementById('simple-mode-form');
+        const overlay = document.getElementById('loading-overlay');
+        const loadingText = document.getElementById('loading-text');
+        if (!team || !form || !action || !team.value) return;
+        if (overlay) overlay.style.display = 'flex';
+        if (loadingText) loadingText.textContent = 'Loading channels...';
+        if (channel) channel.value = '';
+        action.value = 'load_channels';
+        form.submit();
+      }
+
+      function togglePersonFilter(scope) {
+        const wrap = document.getElementById('person_filter_wrap');
+        const sel = document.getElementById('simple_sender_filter');
+        const action = document.getElementById('simple_form_action');
+        const form = document.getElementById('simple-mode-form');
+        const overlay = document.getElementById('loading-overlay');
+        const loadingText = document.getElementById('loading-text');
+        if (!wrap || !sel) return;
+        if (scope === 'person') {
+          wrap.style.display = 'block';
+          sel.name = 'sender_filter';
+          if (sel.options.length <= 1 && action && form) {
+            if (overlay) overlay.style.display = 'flex';
+            if (loadingText) loadingText.textContent = 'Loading people list...';
+            action.value = 'load_people';
+            form.submit();
+          }
+        } else {
+          wrap.style.display = 'none';
+          sel.value = '';
+          sel.name = '';
+        }
+      }
+
+      function autoRefreshChannel() {
+        const channel = document.getElementById('simple_channel_id');
+        const action = document.getElementById('simple_form_action');
+        const form = document.getElementById('simple-mode-form');
+        const overlay = document.getElementById('loading-overlay');
+        const loadingText = document.getElementById('loading-text');
+        if (!channel || !action || !form) return;
+        if (overlay) overlay.style.display = 'flex';
+        if (loadingText) loadingText.textContent = 'Refreshing channel context...';
+        action.value = 'load_channels';
+        form.submit();
+      }
+
+      (function attachGlobalLoadingState() {
+        const overlay = document.getElementById('loading-overlay');
+        const loadingText = document.getElementById('loading-text');
+        if (!overlay) return;
+        document.querySelectorAll('form').forEach((form) => {
+          form.addEventListener('submit', () => {
+            if (loadingText) loadingText.textContent = 'Loading data...';
+            overlay.style.display = 'flex';
+          });
+        });
+        window.addEventListener('pageshow', () => {
+          overlay.style.display = 'none';
+        });
+      })();
+    </script>
+  </body>
+</html>

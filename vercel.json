@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "pip install -r tools/forms-ui/requirements.txt",
+  "functions": {
+    "tools/forms-ui/app.py": {
+      "runtime": "python3.11",
+      "maxDuration": 60
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "tools/forms-ui/app.py"
+    }
+  ]
+}
