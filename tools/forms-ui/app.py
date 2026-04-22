@@ -115,6 +115,21 @@ def _build_confidential_client(scanner_module: Any) -> Any:
     )
 
 
+def _teams_access_help() -> str:
+    return (
+        "Connected, but no Teams were returned for this account. "
+        "Confirm this user is a member of at least one Team and that Graph delegated permissions "
+        "(User.Read, Group.Read.All, Team.ReadBasic.All, Channel.ReadBasic.All) are granted with admin consent."
+    )
+
+
+def _graph_error_hint(scanner: Any) -> str:
+    raw = str(getattr(scanner, "last_graph_error", "") or "").strip()
+    if not raw:
+        return ""
+    return f" Graph API error: {raw}"
+
+
 def _get_teams_scanner(force_select_account: bool = False):
     module = _load_teams_scanner_module()
     scanner = module.TeamsScanner()
@@ -663,6 +678,20 @@ def simple_channel_summary():
     try:
         scanner = _get_teams_scanner(force_select_account=force_select_account)
         teams = scanner.list_joined_teams()
+        if not teams:
+            return _render_page(
+                error=_teams_access_help() + _graph_error_hint(scanner),
+                teams=[],
+                max_responses=max_responses,
+                message_limit=message_limit,
+                days_back=days_back,
+                sender_filter=sender_filter,
+                date_from=date_from,
+                date_to=date_to,
+                connected=True,
+                summary_scope=summary_scope,
+                fast_mode=fast_mode,
+            )
 
         if not selected_team_id:
             return _render_page(
@@ -711,7 +740,7 @@ def simple_channel_summary():
                 info_error = (
                     "No channels were returned for this team. "
                     "Try signing in again with the correct account, or choose a different team."
-                )
+                ) + _graph_error_hint(scanner)
             return _render_page(
                 error=info_error,
                 teams=teams,

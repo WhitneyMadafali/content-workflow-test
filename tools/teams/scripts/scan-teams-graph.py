@@ -94,6 +94,7 @@ class TeamsScanner:
             token_cache=self.token_cache
         )
         self.access_token: Optional[str] = None
+        self.last_graph_error: Optional[str] = None
         self.workspace_root = workspace_root or Path(__file__).parent.parent.parent.parent
 
     def _load_cache(self):
@@ -136,6 +137,7 @@ class TeamsScanner:
 
     def _make_request(self, endpoint: str, method: str = "GET") -> Optional[Dict]:
         if not self.access_token:
+            self.last_graph_error = "Not authenticated. Run authenticate() first."
             print("Not authenticated. Run authenticate() first.")
             return None
 
@@ -148,12 +150,23 @@ class TeamsScanner:
         try:
             response = requests.request(method, url, headers=headers, timeout=120)
             response.raise_for_status()
+            self.last_graph_error = None
             return response.json()
         except requests.exceptions.HTTPError as e:
+            graph_msg = ""
+            try:
+                payload = response.json()
+                graph_msg = str((payload.get("error") or {}).get("message") or "").strip()
+            except Exception:
+                graph_msg = ""
+            self.last_graph_error = (
+                f"Graph HTTP {response.status_code}: {graph_msg or response.text[:500]}"
+            ).strip()
             print(f"HTTP error: {e}")
             print(f"Response: {response.text}")
             return None
         except Exception as e:
+            self.last_graph_error = f"Graph request failed: {e}"
             print(f"Request failed: {e}")
             return None
 
